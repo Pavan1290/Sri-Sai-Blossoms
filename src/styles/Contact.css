@@ -1,0 +1,538 @@
+/* 
+ * Contact.css - Playful and colorful styling for the Contact page
+ */
+
+/* Custom font imports for child-friendly typography */
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Baloo+2:wght@400;600;700&display=swap');
+
+/* Colorful background with playful pattern */
+body {
+  background-color: #F9F5FF;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"><g transform="translate(80, 80)" opacity="0.2"><circle cx="0" cy="0" r="20" fill="%23E91E63"/></g><g transform="translate(200, 50)" opacity="0.2"><circle cx="0" cy="0" r="15" fill="%23FF9800"/></g><g transform="translate(320, 120)" opacity="0.2"><circle cx="0" cy="0" r="25" fill="%23673AB7"/></g><g transform="translate(50, 200)" opacity="0.2"><rect x="-10" y="-10" width="20" height="20" rx="5" fill="%234CAF50"/></g><g transform="translate(180, 220)" opacity="0.2"><polygon points="0,-15 15,10 -15,10" fill="%232196F3"/></g><g transform="translate(300, 230)" opacity="0.2"><circle cx="0" cy="0" r="18" fill="%23FF5722"/></g><g transform="translate(420, 200)" opacity="0.2"><rect x="-12" y="-12" width="24" height="24" rx="6" fill="%23FFC107"/></g><g transform="translate(60, 350)" opacity="0.2"><circle cx="0" cy="0" r="22" fill="%239C27B0"/></g><g transform="translate(200, 330)" opacity="0.2"><rect x="-15" y="-15" width="30" height="30" rx="8" fill="%2300BCD4"/></g><g transform="translate(350, 350)" opacity="0.2"><polygon points="0,-20 20,15 -20,15" fill="%238BC34A"/></g><g transform="translate(450, 380)" opacity="0.2"><circle cx="0" cy="0" r="15" fill="%23F44336"/></g></svg>');
+  background-attachment: fixed;
+}
+
+/* Main container with colorful border */
+.contact-container {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 3rem;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0 15px 50px rgba(33, 150, 243, 0.15);
+  position: relative;
+  font-family: 'Baloo 2', cursive;
+  overflow: hidden;
+  border: 8px solid;
+  border-image: linear-gradient(
+    45deg, 
+    #FF9800, #FFEB3B, #8BC34A, 
+    #00BCD4, #3F51B5, #9C27B0, 
+    #E91E63, #FF5722
+  ) 1;
+}
+
+/* Rainbow cloud at the top of the container */
+.contact-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><defs><linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="%23FF5722"/><stop offset="14%" stop-color="%23FF9800"/><stop offset="28%" stop-color="%23FFEB3B"/><stop offset="42%" stop-color="%238BC34A"/><stop offset="57%" stop-color="%2300BCD4"/><stop offset="71%" stop-color="%233F51B5"/><stop offset="85%" stop-color="%239C27B0"/><stop offset="100%" stop-color="%23E91E63"/></linearGradient></defs><g transform="translate(500, 70)"><path d="M-300,0 Q-250,-60 -150,-40 Q-50,-20 0,-60 Q50,-100 150,-60 Q250,-20 300,0 L300,100 L-300,100 Z" fill="url(%23rainbow)" opacity="0.15"/><g transform="translate(-200, 0)"><circle cx="-30" cy="0" r="30" fill="%23FFF" opacity="0.6"/><circle cx="0" cy="-20" r="35" fill="%23FFF" opacity="0.6"/><circle cx="40" cy="0" r="30" fill="%23FFF" opacity="0.6"/><circle cx="0" cy="10" r="25" fill="%23FFF" opacity="0.6"/></g><g transform="translate(0, -20)"><circle cx="-40" cy="0" r="40" fill="%23FFF" opacity="0.6"/><circle cx="0" cy="-25" r="45" fill="%23FFF" opacity="0.6"/><circle cx="50" cy="0" r="35" fill="%23FFF" opacity="0.6"/><circle cx="0" cy="20" r="30" fill="%23FFF" opacity="0.6"/></g><g transform="translate(200, 0)"><circle cx="-30" cy="0" r="30" fill="%23FFF" opacity="0.6"/><circle cx="0" cy="-20" r="35" fill="%23FFF" opacity="0.6"/><circle cx="40" cy="0" r="30" fill="%23FFF" opacity="0.6"/><circle cx="0" cy="10" r="25" fill="%23FFF" opacity="0.6"/></g></g></svg>');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.7;
+  z-index: 0;
+}
+
+/* Kids communicating silhouettes at the bottom */
+.contact-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><g transform="translate(150, 65)"><circle cx="0" cy="0" r="15" fill="%233F51B5" opacity="0.3"/><path d="M0,-15 L0,-45 M-15,-30 L15,-30" stroke="%233F51B5" stroke-width="3" opacity="0.3"/><circle cx="0" cy="-60" r="12" fill="%233F51B5" opacity="0.3"/></g><g transform="translate(400, 65)"><circle cx="0" cy="0" r="15" fill="%239C27B0" opacity="0.3"/><path d="M0,-15 L0,-45 M-15,-30 L15,-30" stroke="%239C27B0" stroke-width="3" opacity="0.3"/><circle cx="0" cy="-60" r="12" fill="%239C27B0" opacity="0.3"/></g><g transform="translate(200, 30)"><path d="M-150,0 Q-125,-30 -100,0" stroke="%233F51B5" stroke-width="3" stroke-dasharray="5,3" fill="none" opacity="0.3"/><path d="M-100,0 Q-75,-40 -50,0" stroke="%233F51B5" stroke-width="3" stroke-dasharray="6,2" fill="none" opacity="0.3"/><path d="M-50,0 Q-25,-50 0,0" stroke="%233F51B5" stroke-width="3" stroke-dasharray="4,2" fill="none" opacity="0.3"/><path d="M0,0 Q25,-40 50,0" stroke="%239C27B0" stroke-width="3" stroke-dasharray="7,3" fill="none" opacity="0.3"/><path d="M50,0 Q75,-30 100,0" stroke="%239C27B0" stroke-width="3" stroke-dasharray="5,2" fill="none" opacity="0.3"/><path d="M100,0 Q125,-50 150,0" stroke="%239C27B0" stroke-width="3" stroke-dasharray="8,4" fill="none" opacity="0.3"/></g><g transform="translate(650, 65)"><circle cx="0" cy="0" r="15" fill="%23FF9800" opacity="0.3"/><path d="M0,-15 L0,-45 M-15,-30 L15,-30" stroke="%23FF9800" stroke-width="3" opacity="0.3"/><circle cx="0" cy="-60" r="12" fill="%23FF9800" opacity="0.3"/></g><g transform="translate(900, 65)"><circle cx="0" cy="0" r="15" fill="%234CAF50" opacity="0.3"/><path d="M0,-15 L0,-45 M-15,-30 L15,-30" stroke="%234CAF50" stroke-width="3" opacity="0.3"/><circle cx="0" cy="-60" r="12" fill="%234CAF50" opacity="0.3"/></g><g transform="translate(700, 30)"><path d="M-150,0 Q-125,-30 -100,0" stroke="%23FF9800" stroke-width="3" stroke-dasharray="5,3" fill="none" opacity="0.3"/><path d="M-100,0 Q-75,-40 -50,0" stroke="%23FF9800" stroke-width="3" stroke-dasharray="6,2" fill="none" opacity="0.3"/><path d="M-50,0 Q-25,-50 0,0" stroke="%23FF9800" stroke-width="3" stroke-dasharray="4,2" fill="none" opacity="0.3"/><path d="M0,0 Q25,-40 50,0" stroke="%234CAF50" stroke-width="3" stroke-dasharray="7,3" fill="none" opacity="0.3"/><path d="M50,0 Q75,-30 100,0" stroke="%234CAF50" stroke-width="3" stroke-dasharray="5,2" fill="none" opacity="0.3"/><path d="M100,0 Q125,-50 150,0" stroke="%234CAF50" stroke-width="3" stroke-dasharray="8,4" fill="none" opacity="0.3"/></g></svg>');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.7;
+  z-index: 0;
+}
+
+/* Main heading with bouncing animation */
+.contact-container h1 {
+  text-align: center;
+  font-size: 4rem;
+  font-family: 'Bubblegum Sans', cursive;
+  margin-bottom: 1rem;
+  color: #00BCD4;
+  text-shadow: 
+    3px 3px 0 #FFD740,
+    6px 6px 0 rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1;
+  animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Decorative mail and phone icons around heading */
+.contact-container h1::before, 
+.contact-container h1::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.contact-container h1::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><rect x="5" y="10" width="50" height="40" rx="5" fill="%2300BCD4"/><path d="M5,15 L30,35 L55,15" stroke="%23FFFFFF" stroke-width="3" fill="none"/></svg>');
+  top: 5px;
+  left: 15%;
+  animation: float-left 5s ease-in-out infinite;
+}
+
+.contact-container h1::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M20,5 L40,5 C45,5 50,10 50,15 L50,45 C50,50 45,55 40,55 L20,55 C15,55 10,50 10,45 L10,15 C10,10 15,5 20,5 Z" fill="%233F51B5"/><circle cx="30" cy="45" r="5" fill="%23FFFFFF"/><path d="M20,15 L40,15 M20,25 L40,25 M20,35 L40,35" stroke="%23FFFFFF" stroke-width="2"/></svg>');
+  top: 5px;
+  right: 15%;
+  animation: float-right 5s ease-in-out infinite;
+}
+
+@keyframes float-left {
+  0%, 100% { transform: translateY(0) rotate(-10deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+@keyframes float-right {
+  0%, 100% { transform: translateY(0) rotate(10deg); }
+  50% { transform: translateY(-15px) rotate(-5deg); }
+}
+
+/* Intro text with vibrant styling */
+.contact-container > p {
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 1.7;
+  margin: 0 auto 3rem;
+  max-width: 800px;
+  color: #5D6CD1;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 1.2rem;
+}
+
+/* Rainbow underline for paragraph */
+.contact-container > p::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    #FF5722, #FF9800, #FFEB3B, 
+    #8BC34A, #00BCD4, #3F51B5, 
+    #9C27B0, #E91E63
+  );
+  border-radius: 6px;
+  animation: expand-line 1.5s forwards;
+}
+
+@keyframes expand-line {
+  to { width: 200px; }
+}
+
+/* Content wrapper for split layout */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Contact information section */
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Individual info blocks with icons and playful styling */
+.info-block {
+  background-color: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.info-block:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Different background colors for each info block */
+.info-block:nth-child(1) {
+  border-left: 5px solid #00BCD4;
+}
+
+.info-block:nth-child(1)::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M20,5 L37,15 L37,35 L3,35 L3,15 Z" fill="%2300BCD4" opacity="0.2"/><path d="M20,20 L3,15 M20,20 L37,15" stroke="%2300BCD4" stroke-width="1" opacity="0.5"/><path d="M3,35 L15,22 M37,35 L25,22" stroke="%2300BCD4" stroke-width="1" opacity="0.5"/><circle cx="20" cy="20" r="3" fill="%2300BCD4" opacity="0.7"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.5;
+}
+
+.info-block:nth-child(2) {
+  border-left: 5px solid #3F51B5;
+}
+
+.info-block:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M10,5 L30,5 C33,5 35,7 35,10 L35,30 C35,33 33,35 30,35 L10,35 C7,35 5,33 5,30 L5,10 C5,7 7,5 10,5 Z" fill="%233F51B5" opacity="0.2"/><circle cx="20" cy="27" r="3" fill="%233F51B5" opacity="0.7"/><path d="M15,15 L25,15 M15,20 L25,20" stroke="%233F51B5" stroke-width="2" opacity="0.5"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.5;
+}
+
+.info-block:nth-child(3) {
+  border-left: 5px solid #FF9800;
+}
+
+.info-block:nth-child(3)::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect x="5" y="10" width="30" height="20" rx="3" fill="%23FF9800" opacity="0.2"/><path d="M5,13 L20,23 L35,13" stroke="%23FF9800" stroke-width="1.5" opacity="0.5"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.5;
+}
+
+.info-block:nth-child(4) {
+  border-left: 5px solid #4CAF50;
+}
+
+.info-block:nth-child(4)::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="%234CAF50" opacity="0.2"/><path d="M20,10 L20,20 L27,27" stroke="%234CAF50" stroke-width="2" opacity="0.5"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.5;
+}
+
+/* Info block headers */
+.info-block h2 {
+  font-family: 'Bubblegum Sans', cursive;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.info-block:nth-child(1) h2 {
+  color: #00BCD4;
+}
+
+.info-block:nth-child(1) h2::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 8"><path d="M0,4 Q2.5,0 5,4 Q7.5,8 10,4 Q12.5,0 15,4 Q17.5,8 20,4" stroke="%2300BCD4" stroke-width="2" fill="none"/></svg>');
+}
+
+.info-block:nth-child(2) h2 {
+  color: #3F51B5;
+}
+
+.info-block:nth-child(2) h2::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 8"><path d="M0,4 Q2.5,0 5,4 Q7.5,8 10,4 Q12.5,0 15,4 Q17.5,8 20,4" stroke="%233F51B5" stroke-width="2" fill="none"/></svg>');
+}
+
+.info-block:nth-child(3) h2 {
+  color: #FF9800;
+}
+
+.info-block:nth-child(3) h2::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 8"><path d="M0,4 Q2.5,0 5,4 Q7.5,8 10,4 Q12.5,0 15,4 Q17.5,8 20,4" stroke="%23FF9800" stroke-width="2" fill="none"/></svg>');
+}
+
+.info-block:nth-child(4) h2 {
+  color: #4CAF50;
+}
+
+.info-block:nth-child(4) h2::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 8"><path d="M0,4 Q2.5,0 5,4 Q7.5,8 10,4 Q12.5,0 15,4 Q17.5,8 20,4" stroke="%234CAF50" stroke-width="2" fill="none"/></svg>');
+}
+
+/* Squiggly underline for headings */
+.info-block h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8px;
+  background-position: bottom;
+  background-size: 20px 8px;
+  background-repeat: repeat-x;
+}
+
+/* Info block paragraph text */
+.info-block p {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  color: #455A64;
+  transition: all 0.3s ease;
+}
+
+.info-block:hover p {
+  color: #263238;
+}
+
+/* Contact form section */
+.contact-form {
+  background-color: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(63, 81, 181, 0.1);
+  position: relative;
+  z-index: 1;
+  border-top: 8px solid #3F51B5;
+}
+
+.contact-form h2 {
+  font-family: 'Bubblegum Sans', cursive;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #3F51B5;
+  text-align: center;
+}
+
+/* Form elements styling */
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #455A64;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid #E0E0E0;
+  border-radius: 15px;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #F5F7FA;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3F51B5;
+  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+  background-color: white;
+}
+
+/* Submit button with playful style */
+.submit-button {
+  background-color: #3F51B5;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(63, 81, 181, 0.3);
+  display: block;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.submit-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.3) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-30deg);
+  transition: all 0.75s ease;
+  z-index: -1;
+}
+
+.submit-button:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(63, 81, 181, 0.4);
+  background-color: #303F9F;
+}
+
+.submit-button:hover::before {
+  left: 100%;
+}
+
+.submit-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 10px rgba(63, 81, 181, 0.3);
+}
+
+/* Map location section */
+.map-location {
+  margin-top: 3rem;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 188, 212, 0.1);
+  border-top: 8px solid #00BCD4;
+}
+
+.map-location h2 {
+  font-family: 'Bubblegum Sans', cursive;
+  font-size: 2rem;
+  padding: 1.5rem;
+  color: #00BCD4;
+  text-align: center;
+  margin: 0;
+  background-color: rgba(0, 188, 212, 0.05);
+}
+
+.map {
+  width: 100%;
+  height: 400px;
+  background-color: #F5F7FA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #78909C;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+/* Map placeholder design */
+.map::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400"><rect x="0" y="0" width="800" height="400" fill="%23E1F5FE"/><path d="M0,80 Q200,100 400,60 Q600,20 800,70 L800,120 Q600,80 400,110 Q200,140 0,100 Z" fill="%23B3E5FC"/><path d="M0,110 Q200,150 400,130 Q600,110 800,140 L800,180 Q600,160 400,180 Q200,200 0,170 Z" fill="%2381D4FA"/><path d="M0,180 Q200,200 400,190 Q600,180 800,210 L800,250 Q600,230 400,240 Q200,250 0,230 Z" fill="%234FC3F7"/><path d="M0,240 Q200,260 400,250 Q600,240 800,270 L800,310 Q600,290 400,300 Q200,310 0,290 Z" fill="%2329B6F6"/><path d="M0,300 Q200,320 400,310 Q600,300 800,330 L800,400 L0,400 Z" fill="%2303A9F4"/><circle cx="400" cy="140" r="15" fill="%23F44336"/><path d="M400,140 L400,180" stroke="%23F44336" stroke-width="4"/><path d="M390,180 L400,200 L410,180 Z" fill="%23F44336"/><circle cx="400" cy="140" r="5" fill="%23FFFFFF"/></svg>');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+/* Responsive design adjustments */
+@media screen and (max-width: 1100px) {
+  .contact-container {
+    padding: 2.5rem;
+    margin: 2rem 1.5rem;
+  }
+  
+  .contact-container h1 {
+    font-size: 3.5rem;
+  }
+  
+  .contact-container h1::before,
+  .contact-container h1::after {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .info-block {
+    padding: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contact-container {
+    padding: 2rem;
+    margin: 1.5rem 1rem;
+  }
+  
+  .contact-container h1 {
+    font-size: 3rem;
+  }
+  
+  .contact-container h1::before {
+    left: 5%;
+  }
+  
+  .contact-container h1::after {
+    right: 5%;
+  }
+  
+  .contact-content {
+    gap: 2rem;
+  }
+  
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .map {
+    height: 300px;
+  }
+}

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import schoolVideo from 'C:/Users/Pavan/sri-sai-blossoms/src/components/WhatsApp Video 2025-02-26 at 23.43.29_dbb6d038.mp4';
 import '../styles/Home.css';
+
+const schoolVideo = "WhatsApp Video 2025-02-26 at 23.43.29_dbb6d038.mp4";
 
 const Home = () => {
   useEffect(() => {

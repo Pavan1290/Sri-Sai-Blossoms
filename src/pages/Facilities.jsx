@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../styles/Facilities.css'
 const Facilities = () => {
   return (
     <div className="facilities-container">

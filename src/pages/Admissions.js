@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../styles/Admissions.css';
 const Admissions = () => {
   return (
     <div className="admissions-container">

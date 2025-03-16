@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../styles/Academics.css';
 const Academics = () => {
   return (
     <div className="academics-container">

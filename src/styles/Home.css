@@ -1,5 +1,8 @@
 /* Kindergarten Home Page Styling */
 
+/* Custom font imports for child-friendly typography */
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Baloo+2:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap');
+
 /* General styles */
 * {
   margin: 0;
@@ -8,10 +11,10 @@
 }
 
 .home-container {
-  font-family: 'Comic Sans MS', 'Bubblegum Sans', 'Poppins', sans-serif;
+  font-family: 'Baloo 2', 'Comic Neue', 'Comic Sans MS', sans-serif;
   color: #333;
   overflow-x: hidden;
-  background-color: #f8f9ff;
+  background-color: #fffcf9;
 }
 
 .container {
@@ -20,7 +23,7 @@
   padding: 0 20px;
 }
 
-/* Hero section styling */
+/* Hero section styling - KEPT AS ORIGINAL */
 .hero-section {
   height: 70vh;
   display: flex;
@@ -60,15 +63,6 @@
   z-index: 1;
 }
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
 .hero-content {
   position: relative;
   z-index: 1;
@@ -89,15 +83,18 @@
 }
 
 .hero-text h1 {
-  font-size: 3.5rem;
+  font-size: 4rem;
   margin-bottom: 1rem;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  color: #FF7F50;  /* Vibrant orange color */
+  font-family: 'Bubblegum Sans', cursive;
 }
 
 .hero-text h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
   font-weight: 400;
+  font-family: 'Comic Sans MS', sans-serif;
 }
 
 .highlight {
@@ -128,10 +125,10 @@
 .btn {
   display: inline-block;
   padding: 12px 28px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 30px;
+  border-radius: 50px;  /* More rounded */
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -151,7 +148,7 @@
 
 .btn:hover {
   transform: translateY(-3px) rotate(2deg);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.428);
 }
 
 .btn-primary:hover {
@@ -162,145 +159,351 @@
   background-color: #8DD5F8;
 }
 
-/* About section styling */
+/* NEW STYLING BELOW THIS POINT */
+
+/* About section with enhanced styling */
 .about-section {
   padding: 80px 0;
-  background-color: #FFFAF0;
+  background-color: #FFFDFA;
   position: relative;
   overflow: hidden;
+  font-family: 'Baloo 2', 'Comic Neue', cursive;
 }
 
+/* Colorful clouds background for about section */
 .about-section::before {
   content: "";
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
-  height: 10px;
-  background: repeating-linear-gradient(
-    45deg,
-    #FF9E1B,
-    #FF9E1B 20px,
-    #6ECBF5 20px,
-    #6ECBF5 40px
-  );
+  height: 100%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800"><g transform="translate(100, 100)" opacity="0.1"><circle cx="0" cy="0" r="50" fill="%23FF9E1B"/><circle cx="50" cy="-20" r="40" fill="%23FF9E1B"/><circle cx="90" cy="0" r="30" fill="%23FF9E1B"/><circle cx="40" cy="30" r="35" fill="%23FF9E1B"/></g><g transform="translate(400, 200)" opacity="0.1"><circle cx="0" cy="0" r="40" fill="%236ECBF5"/><circle cx="40" cy="-15" r="30" fill="%236ECBF5"/><circle cx="70" cy="0" r="25" fill="%236ECBF5"/><circle cx="30" cy="20" r="30" fill="%236ECBF5"/></g><g transform="translate(700, 150)" opacity="0.1"><circle cx="0" cy="0" r="45" fill="%23FF6B6B"/><circle cx="45" cy="-18" r="35" fill="%23FF6B6B"/><circle cx="80" cy="0" r="28" fill="%23FF6B6B"/><circle cx="35" cy="25" r="32" fill="%23FF6B6B"/></g><g transform="translate(1000, 220)" opacity="0.1"><circle cx="0" cy="0" r="50" fill="%236ECBF5"/><circle cx="50" cy="-20" r="40" fill="%236ECBF5"/><circle cx="90" cy="0" r="30" fill="%236ECBF5"/><circle cx="40" cy="30" r="35" fill="%236ECBF5"/></g><g transform="translate(250, 500)" opacity="0.1"><circle cx="0" cy="0" r="40" fill="%23FF9E1B"/><circle cx="40" cy="-15" r="30" fill="%23FF9E1B"/><circle cx="70" cy="0" r="25" fill="%23FF9E1B"/><circle cx="30" cy="20" r="30" fill="%23FF9E1B"/></g><g transform="translate(600, 450)" opacity="0.1"><circle cx="0" cy="0" r="45" fill="%236ECBF5"/><circle cx="45" cy="-18" r="35" fill="%236ECBF5"/><circle cx="80" cy="0" r="28" fill="%236ECBF5"/><circle cx="35" cy="25" r="32" fill="%236ECBF5"/></g><g transform="translate(950, 530)" opacity="0.1"><circle cx="0" cy="0" r="50" fill="%23FF6B6B"/><circle cx="50" cy="-20" r="40" fill="%23FF6B6B"/><circle cx="90" cy="0" r="30" fill="%23FF6B6B"/><circle cx="40" cy="30" r="35" fill="%23FF6B6B"/></g></svg>');
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+  opacity: 0.6;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -15px;
-}
-
-.col {
-  flex: 1;
-  padding: 0 15px;
-  min-width: 300px;
-  margin-bottom: 30px;
-}
-
-.col h3 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #FF6B6B;
-  position: relative;
-  padding-bottom: 10px;
-}
-
-.col h3::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50px;
-  height: 3px;
-  background-color: #6ECBF5;
-}
-
-.col p {
-  line-height: 1.8;
-  color: #666;
-  font-size: 1.1rem;
-}
-
-/* Program and features list styling */
-.program-list, .features-list {
-  list-style: none;
-  margin: 15px 0;
-}
-
-.program-list li, .features-list li {
-  margin-bottom: 12px;
-  position: relative;
-  padding-left: 25px;
-  line-height: 1.6;
-}
-
-.program-list li:before, .features-list li:before {
-  content: "★";
-  position: absolute;
-  left: 0;
-  color: #FF9E1B;
-}
-
-.program-name {
-  font-weight: bold;
-  color: #6ECBF5;
-}
-
-/* Contact section styling */
-.contact-section {
-  padding: 80px 0;
-  background-color: #6ECBF5;
-  color: white;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.contact-section::before {
+/* Rainbow ruler at the top of about section */
+.about-section::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 10px;
-  background: repeating-linear-gradient(
-    45deg,
-    #FF9E1B,
-    #FF9E1B 20px,
-    #6ECBF5 20px,
-    #6ECBF5 40px
-  );
+  background: linear-gradient(90deg, 
+    #FF6B6B, #FF9E1B, #FFC107, 
+    #8BC34A, #4CAF50, #6ECBF5, 
+    #3F51B5, #9C27B0, #E91E63);
+  z-index: 1;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  position: relative;
+  z-index: 1;
+}
+
+.col {
+  flex: 1;
+  padding: 25px;
+  min-width: 300px;
+  margin-bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  margin: 15px;
+}
+
+.col:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Decorative corner ribbons */
+.col::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.col:nth-child(1)::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,60 Z" fill="%23FF6B6B"/><text x="15" y="15" transform="rotate(45 25,25)" font-family="Arial" font-size="8" font-weight="bold" fill="%23FFFFFF">STARS</text></svg>');
+}
+
+.col:nth-child(2)::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,60 Z" fill="%236ECBF5"/><text x="10" y="15" transform="rotate(45 25,25)" font-family="Arial" font-size="8" font-weight="bold" fill="%23FFFFFF">LEARN</text></svg>');
+}
+
+.col:nth-child(3)::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,60 Z" fill="%23FF9E1B"/><text x="10" y="15" transform="rotate(45 25,25)" font-family="Arial" font-size="8" font-weight="bold" fill="%23FFFFFF">FUN</text></svg>');
+}
+
+.col h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 15px;
+  font-family: 'Bubblegum Sans', cursive;
+  text-align: center;
+}
+
+/* Different vibrant colors for each heading */
+.col:nth-child(1) h3 {
+  color: #FF6B6B;
+}
+
+.col:nth-child(2) h3 {
+  color: #6ECBF5;
+}
+
+.col:nth-child(3) h3 {
+  color: #FF9E1B;
+}
+
+/* Squiggly underline for headings */
+.col h3::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 8px;
+  background-position: bottom;
+  background-size: 20px 8px;
+  background-repeat: repeat-x;
+}
+
+.col:nth-child(1) h3::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 8"><path d="M0,4 Q2.5,0 5,4 Q7.5,8 10,4 Q12.5,0 15,4 Q17.5,8 20,4" stroke="%23FF6B6B" stroke-width="2" fill="none"/></svg>');
+}
+
+.col:nth-child(2) h3::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 8"><path d="M0,4 Q2.5,0 5,4 Q7.5,8 10,4 Q12.5,0 15,4 Q17.5,8 20,4" stroke="%236ECBF5" stroke-width="2" fill="none"/></svg>');
+}
+
+.col:nth-child(3) h3::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 8"><path d="M0,4 Q2.5,0 5,4 Q7.5,8 10,4 Q12.5,0 15,4 Q17.5,8 20,4" stroke="%23FF9E1B" stroke-width="2" fill="none"/></svg>');
+}
+
+.col p {
+  line-height: 1.8;
+  color: #555;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Program and features list styling */
+.program-list, .features-list {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.program-list li, .features-list li {
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 35px;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+/* Custom colorful bullets */
+.program-list li:before, .features-list li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease;
+}
+
+/* Different bullet styles for each section */
+.col:nth-child(1) .program-list li:before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2 L15,8 L21,9 L16.5,14 L18,20 L12,17 L6,20 L7.5,14 L3,9 L9,8 Z" fill="%23FF6B6B"/></svg>');
+}
+
+.col:nth-child(2) .program-list li:before, 
+.col:nth-child(2) p:before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="%236ECBF5"/><path d="M8,12 L11,15 L16,9" stroke="%23FFFFFF" stroke-width="2" fill="none"/></svg>');
+}
+
+.col:nth-child(3) .features-list li:before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,3 C7,3 3,7 3,12 C3,17 7,21 12,21 C17,21 21,17 21,12 C21,7 17,3 12,3 Z" fill="%23FF9E1B"/><path d="M9,12 L11,14 L15,10" stroke="%23FFFFFF" stroke-width="2" fill="none"/></svg>');
+}
+
+/* List item hover effect */
+.program-list li:hover, .features-list li:hover {
+  transform: translateX(10px);
+  color: #333;
+}
+
+.program-list li:hover:before, .features-list li:hover:before {
+  transform: scale(1.2) rotate(10deg);
+}
+
+.program-name {
+  font-weight: bold;
+  color: #6ECBF5;
+  font-family: 'Bubblegum Sans', cursive;
+  font-size: 1.1rem;
+}
+
+/* Contact section styling */
+.contact-section {
+  padding: 80px 0 100px;
+  background: linear-gradient(135deg, #8ED1FC, #7BDCB5);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Baloo 2', 'Comic Neue', sans-serif;
+}
+
+/* Grass and flowers at the bottom of contact section */
+.contact-section::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 60"><path d="M0,60 L0,40 C 10,35 15,30 20,40 C 25,50 30,45 35,35 C 40,25 45,20 50,30 C 55,40 60,45 65,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M65,35 C 70,25 75,20 80,30 C 85,40 90,45 95,35 C 100,25 105,20 110,30 C 115,40 120,45 125,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M125,35 C 130,25 135,20 140,30 C 145,40 150,45 155,35 C 160,25 165,20 170,30 C 175,40 180,45 185,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M185,35 C 190,25 195,20 200,30 C 205,40 210,45 215,35 C 220,25 225,20 230,30 C 235,40 240,45 245,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M245,35 C 250,25 255,20 260,30 C 265,40 270,45 275,35 C 280,25 285,20 290,30 C 295,40 300,45 305,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M305,35 C 310,25 315,20 320,30 C 325,40 330,45 335,35 C 340,25 345,20 350,30 C 355,40 360,45 365,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M365,35 C 370,25 375,20 380,30 C 385,40 390,45 395,35 C 400,25 405,20 410,30 C 415,40 420,45 425,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M425,35 C 430,25 435,20 440,30 C 445,40 450,45 455,35 C 460,25 465,20 470,30 C 475,40 480,45 485,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M485,35 C 490,25 495,20 500,30 C 505,40 510,45 515,35 C 520,25 525,20 530,30 C 535,40 540,45 545,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M545,35 C 550,25 555,20 560,30 C 565,40 570,45 575,35 C 580,25 585,20 590,30 C 595,40 600,45 605,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M605,35 C 610,25 615,20 620,30 C 625,40 630,45 635,35 C 640,25 645,20 650,30 C 655,40 660,45 665,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M665,35 C 670,25 675,20 680,30 C 685,40 690,45 695,35 C 700,25 705,20 710,30 C 715,40 720,45 725,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M725,35 C 730,25 735,20 740,30 C 745,40 750,45 755,35 C 760,25 765,20 770,30 C 775,40 780,45 785,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M785,35 C 790,25 795,20 800,30 C 805,40 810,45 815,35 C 820,25 825,20 830,30 C 835,40 840,45 845,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M845,35 C 850,25 855,20 860,30 C 865,40 870,45 875,35 C 880,25 885,20 890,30 C 895,40 900,45 905,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M905,35 C 910,25 915,20 920,30 C 925,40 930,45 935,35 C 940,25 945,20 950,30 C 955,40 960,45 965,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M965,35 C 970,25 975,20 980,30 C 985,40 990,45 995,35 C 1000,25 1005,20 1010,30 C 1015,40 1020,45 1025,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M1025,35 C 1030,25 1035,20 1040,30 C 1045,40 1050,45 1055,35 C 1060,25 1065,20 1070,30 C 1075,40 1080,45 1085,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M1085,35 C 1090,25 1095,20 1100,30 C 1105,40 1110,45 1115,35 C 1120,25 1125,20 1130,30 C 1135,40 1140,45 1145,35" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><path d="M1145,35 C 1150,25 1155,20 1160,30 C 1165,40 1170,45 1175,35 C 1180,25 1185,20 1190,30 C 1195,40 1200,45 1200,40 L 1200,60 L 0,60" stroke="%234CAF50" stroke-width="0" fill="%234CAF50"/><g transform="translate(100, 30)"><circle cx="0" cy="0" r="8" fill="%23FF6B6B"/><circle cx="0" cy="0" r="3" fill="%23FFEB3B"/></g><g transform="translate(180, 25)"><circle cx="0" cy="0" r="6" fill="%23FF9E1B"/><circle cx="0" cy="0" r="2" fill="%23FFEB3B"/></g><g transform="translate(300, 20)"><circle cx="0" cy="0" r="8" fill="%236ECBF5"/><circle cx="0" cy="0" r="3" fill="%23FFFFFF"/></g><g transform="translate(450, 25)"><circle cx="0" cy="0" r="7" fill="%23FF6B6B"/><circle cx="0" cy="0" r="2.5" fill="%23FFEB3B"/></g><g transform="translate(600, 22)"><circle cx="0" cy="0" r="9" fill="%239C27B0"/><circle cx="0" cy="0" r="3.5" fill="%23FFFFFF"/></g><g transform="translate(750, 28)"><circle cx="0" cy="0" r="7" fill="%23FF9E1B"/><circle cx="0" cy="0" r="2.5" fill="%23FFEB3B"/></g><g transform="translate(880, 25)"><circle cx="0" cy="0" r="8" fill="%236ECBF5"/><circle cx="0" cy="0" r="3" fill="%23FFFFFF"/></g><g transform="translate(1000, 20)"><circle cx="0" cy="0" r="6" fill="%23FF6B6B"/><circle cx="0" cy="0" r="2" fill="%23FFEB3B"/></g><g transform="translate(1100, 27)"><circle cx="0" cy="0" r="7" fill="%239C27B0"/><circle cx="0" cy="0" r="2.5" fill="%23FFFFFF"/></g></svg>');
+  background-repeat: repeat-x;
+  background-size: cover;
+  z-index: 1;
+}
+
+/* Clouds at the top of contact section */
+.contact-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 80"><g transform="translate(100, 50)" opacity="0.5"><circle cx="-30" cy="0" r="30" fill="%23FFFFFF"/><circle cx="0" cy="-15" r="35" fill="%23FFFFFF"/><circle cx="40" cy="0" r="30" fill="%23FFFFFF"/><circle cx="0" cy="15" r="25" fill="%23FFFFFF"/></g><g transform="translate(300, 40)" opacity="0.5"><circle cx="-40" cy="0" r="40" fill="%23FFFFFF"/><circle cx="0" cy="-20" r="45" fill="%23FFFFFF"/><circle cx="50" cy="0" r="35" fill="%23FFFFFF"/><circle cx="0" cy="20" r="30" fill="%23FFFFFF"/></g><g transform="translate(550, 50)" opacity="0.5"><circle cx="-30" cy="0" r="30" fill="%23FFFFFF"/><circle cx="0" cy="-15" r="35" fill="%23FFFFFF"/><circle cx="40" cy="0" r="30" fill="%23FFFFFF"/><circle cx="0" cy="15" r="25" fill="%23FFFFFF"/></g><g transform="translate(750, 35)" opacity="0.5"><circle cx="-35" cy="0" r="35" fill="%23FFFFFF"/><circle cx="0" cy="-18" r="40" fill="%23FFFFFF"/><circle cx="45" cy="0" r="32" fill="%23FFFFFF"/><circle cx="0" cy="17" r="27" fill="%23FFFFFF"/></g><g transform="translate(900, 50)" opacity="0.5"><circle cx="-25" cy="0" r="25" fill="%23FFFFFF"/><circle cx="0" cy="-13" r="30" fill="%23FFFFFF"/><circle cx="35" cy="0" r="25" fill="%23FFFFFF"/><circle cx="0" cy="13" r="22" fill="%23FFFFFF"/></g></svg>');
+  background-repeat: repeat-x;
+  background-position: top;
+  z-index: 0;
 }
 
 .contact-section h3 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 40px;
   color: white;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  font-family: 'Bubblegum Sans', cursive;
+  position: relative;
+  z-index: 1;
 }
 
 .contact-info {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 30px;
+  position: relative;
+  z-index: 1;
 }
 
+/* Improved contact items */
 .contact-item {
   display: flex;
   align-items: center;
   font-size: 1.1rem;
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 15px 25px;
   border-radius: 50px;
   transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add icons with SVG for each contact item */
+.icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.phone-icon {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,15.5C18.8,15.5 17.5,15.3 16.4,14.9C16.3,14.9 16.2,14.9 16.1,14.9C15.8,14.9 15.6,15 15.4,15.2L13.2,17.4C10.4,15.9 8,13.6 6.6,10.8L8.8,8.6C9.1,8.3 9.2,7.9 9,7.6C8.7,6.5 8.5,5.2 8.5,4C8.5,3.4 8,3 7.5,3H4C3.4,3 3,3.4 3,4C3,13.4 10.6,21 20,21C20.6,21 21,20.6 21,20V16.5C21,16 20.6,15.5 20,15.5M5,5H6.5C6.6,5.9 6.8,6.8 7,7.6L5.8,8.8C5.4,7.6 5.1,6.3 5,5M19,19C17.7,18.9 16.4,18.6 15.2,18.2L16.4,17C17.2,17.2 18.1,17.4 19,17.4V19Z" fill="%23FFFFFF"/></svg>');
+}
+
+.email-icon {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,4H4C2.9,4 2,4.9 2,6V18C2,19.1 2.9,20 4,20H20C21.1,20 22,19.1 22,18V6C22,4.9 21.1,4 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z" fill="%23FFFFFF"/></svg>');
+}
+
+.address-icon {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" fill="%23FFFFFF"/></svg>');
+}
+
+.time-icon {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" fill="%23FFFFFF"/></svg>');
+}
+
+/* Shine effect for contact items */
+.contact-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.4) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: all 0.75s ease;
+  z-index: -1;
 }
 
 .contact-item:hover {
-  transform: scale(1.05);
-  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.contact-item:hover::after {
+  left: 100%;
+}
+
+/* Contact item text - FIX to ensure it's always visible */
+.contact-item p {
+  margin: 0;
+  font-weight: 500;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  opacity: 1 !important; /* Force opacity to ensure visibility */
+  transition: none !important; /* Prevent unwanted transitions */
+  position: relative;
+  z-index: 2;
 }
 
 /* Animation styling */
@@ -315,35 +518,7 @@
   transform: translateY(0);
 }
 
-.features-section {
-  padding: 3rem 0;
-}
-
-.feature-card {
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 100%;
-  transition: transform 0.3s;
-}
-
-.feature-card:hover {
-  transform: translateY(-5px);
-}
-
-.testimonials-section {
-  background-color: #f8f9fa;
-  padding: 3rem 0;
-}
-
-.testimonial-card {
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 100%;
-}
-
-/* Responsive design - keep the existing media queries */
+/* Responsive design */
 @media (max-width: 768px) {
   .hero-text h1 {
     font-size: 2.5rem;
@@ -367,6 +542,11 @@
     gap: 20px;
   }
   
+  .contact-item {
+    width: 100%;
+    padding: 12px 20px;
+  }
+  
   .program-list li, .features-list li {
     font-size: 0.9rem;
   }
@@ -379,5 +559,13 @@
   
   .hero-text h2 {
     font-size: 1.2rem;
+  }
+  
+  .col h3 {
+    font-size: 1.7rem;
+  }
+  
+  .contact-section h3 {
+    font-size: 2.2rem;
   }
 }

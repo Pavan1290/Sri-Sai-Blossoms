@@ -1,0 +1,1176 @@
+/* 
+ * Academics.css - Nature-inspired and Cartoon-Themed Styling for Academics Page
+ * Created for Sri Sai Blossoms School Website with Enhanced Animations
+ */
+
+/* Nature-themed page background with animated elements */
+body {
+  background-color: #E8F9FD;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M30,50 Q40,30 50,50" stroke="%236BCB77" stroke-width="2" fill="none" opacity="0.3"/><path d="M150,30 Q160,10 170,30" stroke="%236BCB77" stroke-width="2" fill="none" opacity="0.3"/><path d="M80,100 Q90,80 100,100" stroke="%236BCB77" stroke-width="2" fill="none" opacity="0.3"/><circle cx="30" cy="20" r="3" fill="%234ECDC4" opacity="0.3"/><circle cx="170" cy="50" r="2" fill="%23FF6B6B" opacity="0.3"/><circle cx="100" cy="80" r="2" fill="%23FFD166" opacity="0.3"/><path d="M140,120 l15,-15 l15,15 l-15,15 z" fill="%239370DB" opacity="0.2"/><path d="M40,150 l10,-10 l10,10 l-10,10 z" fill="%234D96FF" opacity="0.2"/></svg>');
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Animated floating leaves across the screen */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000"><g transform="translate(100, 100) rotate(10)" opacity="0.3"><path d="M0,0 Q10,-20 20,0 Q30,20 0,10 Q-30,20 0,0" fill="%236BCB77"/></g><g transform="translate(300, 200) rotate(45)" opacity="0.2"><path d="M0,0 Q10,-15 20,0 Q10,15 0,0" fill="%234ECDC4"/></g><g transform="translate(500, 150) rotate(-15)" opacity="0.25"><path d="M0,0 Q5,-10 10,0 Q5,10 0,0" fill="%23FFD166"/></g><g transform="translate(700, 250) rotate(30)" opacity="0.2"><path d="M0,0 Q10,-20 20,0 Q10,20 0,0" fill="%23FF6B6B"/></g><g transform="translate(200, 400) rotate(-25)" opacity="0.15"><path d="M0,0 Q15,-25 30,0 Q15,25 0,0" fill="%239370DB"/></g><g transform="translate(450, 550) rotate(15)" opacity="0.2"><path d="M0,0 Q7,-12 14,0 Q7,12 0,0" fill="%236BCB77"/></g><g transform="translate(650, 500) rotate(-10)" opacity="0.15"><path d="M0,0 Q12,-18 24,0 Q12,18 0,0" fill="%234ECDC4"/></g><g transform="translate(850, 450) rotate(20)" opacity="0.25"><path d="M0,0 Q8,-16 16,0 Q8,16 0,0" fill="%23FFD166"/></g><g transform="translate(150, 700) rotate(5)" opacity="0.2"><path d="M0,0 Q10,-15 20,0 Q10,15 0,0" fill="%23FF6B6B"/></g><g transform="translate(400, 800) rotate(-5)" opacity="0.15"><path d="M0,0 Q13,-20 26,0 Q13,20 0,0" fill="%239370DB"/></g><g transform="translate(600, 750) rotate(25)" opacity="0.2"><path d="M0,0 Q9,-14 18,0 Q9,14 0,0" fill="%236BCB77"/></g><g transform="translate(800, 850) rotate(-20)" opacity="0.15"><path d="M0,0 Q11,-17 22,0 Q11,17 0,0" fill="%234ECDC4"/></g></svg>');
+  animation: falling-leaves 120s linear infinite;
+}
+
+/* Falling leaves animation */
+@keyframes falling-leaves {
+  from {
+    background-position: 0px -100px;
+  }
+  to {
+    background-position: -500px 1000px;
+  }
+}
+
+/* Main container with enhanced background */
+.academics-container {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Comic Neue', 'Bubblegum Sans', cursive;
+  z-index: 1;
+  animation: container-appear 1s ease-out;
+}
+
+/* Container appearance animation */
+@keyframes container-appear {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Nature background for the container - enhanced with more elements */
+.academics-container::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><path d="M0,500 C50,470 100,500 150,480 C200,460 250,490 300,470 C350,450 400,480 450,460 C500,440 550,470 600,450 C650,430 700,460 750,440 C800,420 800,600 800,600 L0,600 Z" fill="%236BCB77" opacity="0.1"/><path d="M0,540 C50,520 100,540 150,520 C200,500 250,530 300,510 C350,490 400,520 450,500 C500,480 550,510 600,490 C650,470 700,500 750,480 C800,460 800,600 800,600 L0,600 Z" fill="%234ECDC4" opacity="0.1"/><g transform="translate(750, 100)" opacity="0.7"><path d="M-20,-10 L0,0 L-20,10 L-15,0 Z" fill="%23FFD166"/><circle cx="-25" cy="0" r="5" fill="%23FFD166"/></g><g transform="translate(650, 150)" opacity="0.7"><path d="M-20,-10 L0,0 L-20,10 L-15,0 Z" fill="%239370DB"/><circle cx="-25" cy="0" r="5" fill="%239370DB"/></g><g transform="translate(700, 80)" opacity="0.7"><path d="M-20,-10 L0,0 L-20,10 L-15,0 Z" fill="%23FF6B6B"/><circle cx="-25" cy="0" r="5" fill="%23FF6B6B"/></g><g transform="translate(600, 180)"><path d="M-5,-20 Q0,-15 5,-20 L5,0 L-5,0 Z" fill="%236BCB77" opacity="0.5"/><path d="M-10,-10 Q0,-5 10,-10 L10,0 L-10,0 Z" fill="%236BCB77" opacity="0.5"/><path d="M-15,0 Q0,5 15,0 L15,10 L-15,10 Z" fill="%23795548" opacity="0.7"/></g><g transform="translate(200, 100)"><path d="M-5,-20 Q0,-15 5,-20 L5,0 L-5,0 Z" fill="%236BCB77" opacity="0.5"/><path d="M-10,-10 Q0,-5 10,-10 L10,0 L-10,0 Z" fill="%236BCB77" opacity="0.5"/><path d="M-15,0 Q0,5 15,0 L15,10 L-15,10 Z" fill="%23795548" opacity="0.7"/></g><g transform="translate(680, 400)"><rect x="-30" y="-40" width="60" height="40" fill="%23FF6B6B" opacity="0.8"/><polygon points="-35,-40 30,-40 0,-60" fill="%239370DB" opacity="0.8"/><rect x="-20" y="-30" width="10" height="15" fill="%23FFFFFF" opacity="0.9"/><rect x="10" y="-30" width="10" height="15" fill="%23FFFFFF" opacity="0.9"/><rect x="-5" y="-10" width="10" height="10" fill="%23FFFFFF" opacity="0.9"/></g><g transform="translate(100, 450)"><rect x="-25" y="-30" width="50" height="30" fill="%234ECDC4" opacity="0.8"/><polygon points="-30,-30 30,-30 0,-50" fill="%23FFD166" opacity="0.8"/><rect x="-15" y="-20" width="8" height="10" fill="%23FFFFFF" opacity="0.9"/><rect x="7" y="-20" width="8" height="10" fill="%23FFFFFF" opacity="0.9"/></g><g transform="translate(400, 420)"><rect x="-20" y="-25" width="40" height="25" fill="%239370DB" opacity="0.8"/><polygon points="-25,-25 25,-25 0,-45" fill="%234ECDC4" opacity="0.8"/><rect x="-12" y="-18" width="6" height="8" fill="%23FFFFFF" opacity="0.9"/><rect x="6" y="-18" width="6" height="8" fill="%23FFFFFF" opacity="0.9"/><rect x="-4" y="-8" width="8" height="8" fill="%23FFFFFF" opacity="0.9"/></g><g transform="translate(250, 350)"><path d="M-15,-20 Q0,-35 15,-20 Q30,-5 15,10 Q0,25 -15,10 Q-30,-5 -15,-20 Z" fill="%236BCB77" opacity="0.4"/><circle cx="0" cy="-5" r="10" fill="%23A3E4D7" opacity="0.5"/><circle cx="0" cy="-5" r="5" fill="%23FFD166" opacity="0.7"/></g><g transform="translate(550, 280)"><path d="M-12,-16 Q0,-28 12,-16 Q24,-4 12,8 Q0,20 -12,8 Q-24,-4 -12,-16 Z" fill="%236BCB77" opacity="0.4"/><circle cx="0" cy="-4" r="8" fill="%23A3E4D7" opacity="0.5"/><circle cx="0" cy="-4" r="4" fill="%23FFD166" opacity="0.7"/></g></svg>');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+/* Animated cloud decorations */
+.academics-container::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><g transform="translate(100, 70)" class="cloud1"><circle cx="0" cy="0" r="30" fill="%23FFFFFF" opacity="0.5"/><circle cx="30" cy="-10" r="25" fill="%23FFFFFF" opacity="0.5"/><circle cx="60" cy="0" r="20" fill="%23FFFFFF" opacity="0.5"/><circle cx="-25" cy="10" r="25" fill="%23FFFFFF" opacity="0.5"/></g><g transform="translate(650, 120)" class="cloud2"><circle cx="0" cy="0" r="25" fill="%23FFFFFF" opacity="0.5"/><circle cx="25" cy="-5" r="20" fill="%23FFFFFF" opacity="0.5"/><circle cx="45" cy="5" r="15" fill="%23FFFFFF" opacity="0.5"/><circle cx="-20" cy="10" r="20" fill="%23FFFFFF" opacity="0.5"/></g><g transform="translate(250, 200)" class="cloud3"><circle cx="0" cy="0" r="20" fill="%23FFFFFF" opacity="0.3"/><circle cx="20" cy="-5" r="15" fill="%23FFFFFF" opacity="0.3"/><circle cx="35" cy="0" r="12" fill="%23FFFFFF" opacity="0.3"/><circle cx="-15" cy="5" r="15" fill="%23FFFFFF" opacity="0.3"/></g><g transform="translate(500, 150)" class="cloud4"><circle cx="0" cy="0" r="22" fill="%23FFFFFF" opacity="0.4"/><circle cx="22" cy="-7" r="18" fill="%23FFFFFF" opacity="0.4"/><circle cx="40" cy="0" r="14" fill="%23FFFFFF" opacity="0.4"/><circle cx="-18" cy="7" r="18" fill="%23FFFFFF" opacity="0.4"/></g></svg>');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: top;
+  z-index: -1;
+  pointer-events: none;
+  animation: drift-clouds 60s linear infinite;
+}
+
+/* Cloud drifting animation */
+@keyframes drift-clouds {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 3% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Main heading with enhanced playful styling */
+.academics-container h1 {
+  text-align: center;
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  font-family: 'Fredoka One', cursive;
+  position: relative;
+  color: #9370DB;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+  animation: color-pulse 8s infinite;
+}
+
+/* Color pulsing animation */
+@keyframes color-pulse {
+  0%, 100% { color: #9370DB; text-shadow: 3px 3px 0px rgba(147, 112, 219, 0.2); }
+  25% { color: #FF6B6B; text-shadow: 3px 3px 0px rgba(255, 107, 107, 0.2); }
+  50% { color: #4ECDC4; text-shadow: 3px 3px 0px rgba(78, 205, 196, 0.2); }
+  75% { color: #FFD166; text-shadow: 3px 3px 0px rgba(255, 209, 102, 0.2); }
+}
+
+/* Animated cartoon bird decoration for heading */
+.academics-container h1::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: calc(50% - 200px);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="60" cy="40" r="25" fill="%23FFD166"/><circle cx="70" cy="30" r="10" fill="white"/><circle cx="72" cy="28" r="4" fill="black"/><path d="M60,65 Q40,80 30,60" stroke="%23FFD166" stroke-width="8" fill="none"/><path d="M85,40 L100,30" stroke="%23FFD166" stroke-width="4" fill="none"/><path d="M85,40 L100,50" stroke="%23FFD166" stroke-width="4" fill="none"/><path d="M85,50 Q95,60 80,65" fill="%23FF6B6B"/><circle cx="72" cy="28" r="1" fill="white"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1;
+  animation: flying-bird 15s infinite;
+}
+
+/* Enhanced flying bird animation with path */
+@keyframes flying-bird {
+  0% { transform: translate(0, 0) rotate(0); }
+  10% { transform: translate(10px, -10px) rotate(5deg); }
+  20% { transform: translate(30px, -15px) rotate(10deg); }
+  30% { transform: translate(50px, -10px) rotate(5deg); }
+  40% { transform: translate(30px, 0px) rotate(0deg); }
+  50% { transform: translate(10px, 10px) rotate(-5deg); }
+  60% { transform: translate(-10px, 15px) rotate(-10deg); }
+  70% { transform: translate(-30px, 10px) rotate(-5deg); }
+  80% { transform: translate(-50px, 0px) rotate(0deg); }
+  90% { transform: translate(-30px, -10px) rotate(5deg); }
+  100% { transform: translate(0, 0) rotate(0); }
+}
+
+/* Cartoon school building decoration with interactive animation */
+.academics-container h1::after {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: -40px;
+  right: calc(50% - 250px);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect x="20" y="50" width="80" height="60" fill="%234ECDC4"/><polygon points="10,50 110,50 60,10" fill="%239370DB"/><rect x="45" y="90" width="30" height="20" fill="%23FFFFFF"/><rect x="30" y="60" width="15" height="20" fill="%23FFFFFF"/><rect x="75" y="60" width="15" height="20" fill="%23FFFFFF"/><rect x="50" y="20" width="20" height="30" fill="%23FF6B6B"/><circle cx="60" cy="35" r="5" fill="%23FFD166"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1;
+  animation: school-bounce 6s infinite ease-in-out;
+}
+
+/* School building bounce animation */
+@keyframes school-bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.05); }
+}
+
+/* Enhanced hover effect for school building */
+.academics-container h1:hover::after {
+  animation: school-pop 0.5s ease-in-out;
+}
+
+@keyframes school-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Paragraph styling with animated underline */
+.academics-container > p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 0.5rem;
+}
+
+/* Animated rainbow underline for paragraph */
+.academics-container > p::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 50%;
+  background: linear-gradient(90deg, #FF6B6B, #FFD166, #6BCB77, #4ECDC4, #9370DB);
+  transform: translateX(-50%);
+  transition: width 1s ease;
+  border-radius: 10px;
+}
+
+.academics-container:hover > p::after {
+  width: 50%;
+}
+
+/* Section styling with enhanced interactive effects */
+section {
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: section-appear 0.8s ease-out;
+}
+
+/* Section appearance animation */
+@keyframes section-appear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Enhanced hover effect with multiple properties */
+section:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* Section headings with animated decoration */
+section h2 {
+  color: #FF6B6B;
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  animation: heading-appear 1s ease-out;
+}
+
+/* Heading appearance animation */
+@keyframes heading-appear {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Enhanced decorative underline for section headings */
+section h2::after {
+  content: '';
+  position: absolute;
+  height: 6px;
+  width: 0;
+  bottom: -8px;
+  left: 0;
+  background: linear-gradient(90deg, #FFD166, #4ECDC4);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+section:hover h2::after {
+  width: 100%;
+}
+
+/* Animated sun icon for headings on hover */
+section h2::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="20" fill="%23FFD166"/><path d="M50,15 L50,0 M50,100 L50,85 M15,50 L0,50 M100,50 L85,50 M26,26 L16,16 M74,26 L84,16 M26,74 L16,84 M74,74 L84,84" stroke="%23FFD166" stroke-width="6"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+section:hover h2::before {
+  transform: translateY(-50%) scale(1);
+  opacity: 0.7;
+}
+
+/* Curriculum section styling with enhanced tree animation */
+.curriculum {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-left: 8px solid #FFD166;
+}
+
+/* Animated tree decoration for curriculum section */
+.curriculum::before {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 200px;
+  top: -30px;
+  right: -20px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150"><path d="M50,10 C30,40 10,60 50,90 C90,60 70,40 50,10 Z" fill="%236BCB77" opacity="0.6"/><path d="M50,40 C35,60 20,75 50,95 C80,75 65,60 50,40 Z" fill="%236BCB77" opacity="0.6"/><path d="M50,70 C40,85 30,95 50,110 C70,95 60,85 50,70 Z" fill="%236BCB77" opacity="0.6"/><rect x="45" y="90" width="10" height="60" fill="%23795548"/><circle cx="40" cy="55" r="5" fill="%23FF6B6B" opacity="0.8"/><circle cx="65" cy="70" r="4" fill="%23FFD166" opacity="0.8"/><circle cx="35" cy="85" r="4" fill="%239370DB" opacity="0.8"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 0;
+  opacity: 0.4;
+  animation: sway-tree 8s ease-in-out infinite;
+}
+
+/* Tree swaying animation */
+@keyframes sway-tree {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg) scale(1.05); }
+  75% { transform: rotate(-2deg) scale(0.95); }
+}
+
+/* Enhanced hover effect for tree */
+.curriculum:hover::before {
+  animation: sway-tree-hover 3s ease-in-out infinite;
+}
+
+@keyframes sway-tree-hover {
+  0%, 100% { transform: rotate(0deg) scale(1.1); }
+  25% { transform: rotate(4deg) scale(1.15); }
+  75% { transform: rotate(-4deg) scale(1.05); }
+}
+
+/* Added seasonal effect on tree - falling leaves */
+.curriculum::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 70px;
+  right: 30px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,20 Q25,15 30,20" stroke="%23FF6B6B" stroke-width="2" fill="none" opacity="0.4"/><path d="M50,30 Q55,25 60,30" stroke="%23FFD166" stroke-width="2" fill="none" opacity="0.4"/><path d="M30,50 Q35,45 40,50" stroke="%236BCB77" stroke-width="2" fill="none" opacity="0.4"/><path d="M60,70 Q65,65 70,70" stroke="%239370DB" stroke-width="2" fill="none" opacity="0.4"/><path d="M40,80 Q45,75 50,80" stroke="%234ECDC4" stroke-width="2" fill="none" opacity="0.4"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.5s ease;
+}
+
+.curriculum:hover::after {
+  opacity: 1;
+  animation: falling-tree-leaves 3s ease-in-out infinite;
+}
+
+@keyframes falling-tree-leaves {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100px); }
+}
+
+/* Curriculum levels card layout with improved animation */
+.curriculum-levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Individual level cards with enhanced interactive effects */
+.level {
+  flex: 1;
+  min-width: 250px;
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform-origin: center bottom;
+}
+
+/* Enhanced hover effect with 3D transformation */
+.level:hover {
+  transform: translateY(-15px) rotate(2deg) perspective(500px) rotateX(5deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Interactive sparkle effect on hover */
+.level::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: all 0.75s ease;
+  z-index: 2;
+}
+
+.level:hover::before {
+  left: 100%;
+}
+
+/* Nature corner decorations with animation */
+.level::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  bottom: -50px;
+  right: -50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(107, 203, 119, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: pulse-decoration 3s infinite;
+}
+
+@keyframes pulse-decoration {
+  0%, 100% { transform: scale(1); opacity: 0.2; }
+  50% { transform: scale(1.2); opacity: 0.3; }
+}
+
+/* Different accent colors and enhanced decorations for each level */
+.level:nth-child(1) {
+  border-top: 5px solid #FF6B6B;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><g transform="translate(250, 50)" opacity="0.2"><circle cx="0" cy="0" r="10" fill="%23FF6B6B"/><circle cx="-5" cy="-5" r="2" fill="%23FFFFFF"/><path d="M-5,5 Q0,10 5,5" stroke="%23FFFFFF" stroke-width="1" fill="none"/></g><g transform="translate(30, 160)" opacity="0.15"><circle cx="0" cy="0" r="15" fill="%23FF6B6B"/><path d="M-8,-8 L8,8 M-8,8 L8,-8" stroke="%23FFFFFF" stroke-width="2"/></g><g transform="translate(50, 30)" opacity="0.1"><rect x="-20" y="-10" width="40" height="20" rx="5" fill="%23FF6B6B"/></g></svg>');
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.level:nth-child(1):hover {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><g transform="translate(250, 50)" opacity="0.3"><circle cx="0" cy="0" r="10" fill="%23FF6B6B"/><circle cx="-5" cy="-5" r="2" fill="%23FFFFFF"/><path d="M-5,5 Q0,10 5,5" stroke="%23FFFFFF" stroke-width="1" fill="none"/></g><g transform="translate(30, 160)" opacity="0.25"><circle cx="0" cy="0" r="15" fill="%23FF6B6B"/><path d="M-8,-8 L8,8 M-8,8 L8,-8" stroke="%23FFFFFF" stroke-width="2"/></g><g transform="translate(50, 30)" opacity="0.2"><rect x="-20" y="-10" width="40" height="20" rx="5" fill="%23FF6B6B"/></g><path d="M100,100 Q120,80 140,100 Q160,120 180,100" stroke="%23FF6B6B" stroke-width="2" fill="none" opacity="0.3"/><circle cx="200" cy="120" r="8" fill="%23FF6B6B" opacity="0.2"/><circle cx="220" cy="140" r="5" fill="%23FF6B6B" opacity="0.2"/></svg>');
+}
+
+.level:nth-child(2) {
+  border-top: 5px solid #4ECDC4;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><g transform="translate(250, 50)" opacity="0.2"><path d="M0,0 L-10,-10 L0,-20 L10,-10 Z" fill="%234ECDC4"/><path d="M0,0 L-10,10 L0,20 L10,10 Z" fill="%234ECDC4"/></g><g transform="translate(40, 150)" opacity="0.15"><path d="M0,0 C5,-10 15,-10 20,0 C25,10 35,10 40,0" stroke="%234ECDC4" stroke-width="2" fill="none"/></g><g transform="translate(60, 40)" opacity="0.1"><circle cx="0" cy="0" r="15" fill="%234ECDC4"/></g></svg>');
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.level:nth-child(2):hover {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><g transform="translate(250, 50)" opacity="0.3"><path d="M0,0 L-10,-10 L0,-20 L10,-10 Z" fill="%234ECDC4"/><path d="M0,0 L-10,10 L0,20 L10,10 Z" fill="%234ECDC4"/></g><g transform="translate(40, 150)" opacity="0.25"><path d="M0,0 C5,-10 15,-10 20,0 C25,10 35,10 40,0" stroke="%234ECDC4" stroke-width="2" fill="none"/></g><g transform="translate(60, 40)" opacity="0.2"><circle cx="0" cy="0" r="15" fill="%234ECDC4"/></g><path d="M110,110 C130,90 150,90 170,110 C190,130 210,130 230,110" stroke="%234ECDC4" stroke-width="2" fill="none" opacity="0.3"/><circle cx="190" cy="130" r="8" fill="%234ECDC4" opacity="0.2"/><circle cx="210" cy="150" r="5" fill="%234ECDC4" opacity="0.2"/></svg>');
+}
+
+.level:nth-child(3) {
+  border-top: 5px solid #FFD166;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><g transform="translate(250, 50)" opacity="0.2"><path d="M-10,-10 L10,-10 L0,10 Z" fill="%23FFD166"/><path d="M-15,0 L15,0 L0,20 Z" fill="%23FFD166"/></g><g transform="translate(50, 150)" opacity="0.15"><circle cx="0" cy="0" r="12" fill="%23FFD166"/><circle cx="0" cy="0" r="6" fill="%23FFFFFF"/></g><g transform="translate(70, 50)" opacity="0.1"><path d="M-10,-10 L10,10 M-10,10 L10,-10" stroke="%23FFD166" stroke-width="3"/></g></svg>');
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.level:nth-child(3):hover {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><g transform="translate(250, 50)" opacity="0.3"><path d="M-10,-10 L10,-10 L0,10 Z" fill="%23FFD166"/><path d="M-15,0 L15,0 L0,20 Z" fill="%23FFD166"/></g><g transform="translate(50, 150)" opacity="0.25"><circle cx="0" cy="0" r="12" fill="%23FFD166"/><circle cx="0" cy="0" r="6" fill="%23FFFFFF"/></g><g transform="translate(70, 50)" opacity="0.2"><path d="M-10,-10 L10,10 M-10,10 L10,-10" stroke="%23FFD166" stroke-width="3"/></g><path d="M120,120 Q140,100 160,120 Q180,140 200,120" stroke="%23FFD166" stroke-width="2" fill="none" opacity="0.3"/><circle cx="180" cy="140" r="8" fill="%23FFD166" opacity="0.2"/><circle cx="200" cy="160" r="5" fill="%23FFD166" opacity="0.2"/></svg>');
+}
+
+.level:nth-child(4) {
+  border-top: 5px solid #9370DB;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><g transform="translate(250, 50)" opacity="0.2"><circle cx="0" cy="0" r="8" fill="%239370DB"/><circle cx="10" cy="10" r="6" fill="%239370DB"/><circle cx="-10" cy="10" r="6" fill="%239370DB"/></g><g transform="translate(60, 160)" opacity="0.15"><path d="M-15,-5 L0,5 L15,-5" stroke="%239370DB" stroke-width="2" fill="none"/><path d="M-15,5 L0,15 L15,5" stroke="%239370DB" stroke-width="2" fill="none"/></g><g transform="translate(80, 60)" opacity="0.1"><path d="M0,0 L10,10 L0,20 L-10,10 Z" fill="%239370DB"/></g></svg>');
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.level:nth-child(4):hover {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><g transform="translate(250, 50)" opacity="0.3"><circle cx="0" cy="0" r="8" fill="%239370DB"/><circle cx="10" cy="10" r="6" fill="%239370DB"/><circle cx="-10" cy="10" r="6" fill="%239370DB"/></g><g transform="translate(60, 160)" opacity="0.25"><path d="M-15,-5 L0,5 L15,-5" stroke="%239370DB" stroke-width="2" fill="none"/><path d="M-15,5 L0,15 L15,5" stroke="%239370DB" stroke-width="2" fill="none"/></g><g transform="translate(80, 60)" opacity="0.2"><path d="M0,0 L10,10 L0,20 L-10,10 Z" fill="%239370DB"/></g><path d="M130,130 C150,110 170,110 190,130 C210,150 230,150 250,130" stroke="%239370DB" stroke-width="2" fill="none" opacity="0.3"/><circle cx="170" cy="150" r="8" fill="%239370DB" opacity="0.2"/><circle cx="190" cy="170" r="5" fill="%239370DB" opacity="0.2"/></svg>');
+}
+
+/* Level headings with enhanced animations */
+.level h3 {
+  color: #4D96FF;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  position: relative;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Heading animation on card hover */
+.level:hover h3 {
+  transform: scale(1.1);
+}
+
+/* Interactive color coding for level headings */
+.level:nth-child(1) h3 {
+  color: #FF6B6B;
+}
+
+.level:nth-child(1):hover h3 {
+  color: #ff3b3b;
+}
+
+.level:nth-child(2) h3 {
+  color: #4ECDC4;
+}
+
+.level:nth-child(2):hover h3 {
+  color: #2ebdb4;
+}
+
+.level:nth-child(3) h3 {
+  color: #FFD166;
+}
+
+.level:nth-child(3):hover h3 {
+  color: #ffc233;
+}
+
+.level:nth-child(4) h3 {
+  color: #9370DB;
+}
+
+.level:nth-child(4):hover h3 {
+  color: #7a4fd1;
+}
+
+/* Enhanced animated nature icon for level headings */
+.level h3::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,3 C7,3 3,7 3,12 C3,17 7,21 12,21 C17,21 21,17 21,12 C21,7 17,3 12,3 Z" fill="none" stroke="%23333333" stroke-width="2"/><path d="M12,7 L12,12 L16,16" fill="none" stroke="%23333333" stroke-width="2"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: transform 0.5s ease;
+}
+
+.level:hover h3::before {
+  transform: rotate(360deg);
+}
+
+/* Class schedules section with animated birds */
+.class-schedules {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-left: 8px solid #6BCB77;
+}
+
+/* Animated tree and birds decoration */
+.class-schedules::before {
+  content: '';
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  top: -20px;
+  right: -20px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100,20 C70,50 60,80 100,120 C140,80 130,50 100,20 Z" fill="%236BCB77" opacity="0.4"/><rect x="95" y="120" width="10" height="80" fill="%23795548" opacity="0.5"/><g transform="translate(70, 60)" opacity="0.7" class="bird1"><path d="M-15,-5 L0,0 L-15,5 L-10,0 Z" fill="%23FFD166"/><circle cx="-18" cy="0" r="3" fill="%23FFD166"/></g><g transform="translate(130, 80)" opacity="0.7" class="bird2"><path d="M-15,-5 L0,0 L-15,5 L-10,0 Z" fill="%239370DB"/><circle cx="-18" cy="0" r="3" fill="%239370DB"/></g></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+/* Add animated flying birds for class schedule section */
+.class-schedules::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400"><g transform="translate(300, 80)" class="bird-flight-1"><path d="M-10,-5 L0,0 L-10,5 L-5,0 Z" fill="%234ECDC4" opacity="0.6"/><circle cx="-12" cy="0" r="2" fill="%234ECDC4" opacity="0.6"/></g><g transform="translate(350, 120)" class="bird-flight-2"><path d="M-10,-5 L0,0 L-10,5 L-5,0 Z" fill="%23FF6B6B" opacity="0.6"/><circle cx="-12" cy="0" r="2" fill="%23FF6B6B" opacity="0.6"/></g><g transform="translate(380, 60)" class="bird-flight-3"><path d="M-10,-5 L0,0 L-10,5 L-5,0 Z" fill="%23FFD166" opacity="0.6"/><circle cx="-12" cy="0" r="2" fill="%23FFD166" opacity="0.6"/></g><g transform="translate(420, 100)" class="bird-flight-4"><path d="M-10,-5 L0,0 L-10,5 L-5,0 Z" fill="%239370DB" opacity="0.6"/><circle cx="-12" cy="0" r="2" fill="%239370DB" opacity="0.6"/></g></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.class-schedules:hover::after {
+  opacity: 1;
+  animation: bird-flight 15s linear infinite;
+}
+
+@keyframes bird-flight {
+  0% { background-position: 0% 0%; }
+  100% { background-position: -100% -20%; }
+}
+
+/* Enhanced table styling with interactive hover effects */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Table hover effect */
+table:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+/* Enhanced table header styling */
+thead {
+  background-color: #6BCB77;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated striped pattern for table header */
+thead::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: thead-shine 3s infinite;
+}
+
+@keyframes thead-shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Table header cells with enhanced styling */
+th {
+  padding: 1rem;
+  text-align: left;
+  font-family: 'Fredoka One', cursive;
+  font-weight: normal;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Interactive table header */
+th:hover {
+  background-color: #5bb96a;
+}
+
+/* Table data styling with enhanced interactive effects */
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #EEE;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Enhanced row styling with animations */
+tbody tr {
+  transition: all 0.3s ease;
+  background-position: 0 0;
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, white 50%, #F5FFF7 50%);
+}
+
+tbody tr:nth-child(even) {
+  background-image: linear-gradient(to right, #F5FFF7 50%, #E0FFE7 50%);
+}
+
+/* Enhanced hover effect for table rows */
+tbody tr:hover {
+  background-position: -100% 0;
+}
+
+/* Cell highlight effect */
+td:hover {
+  color: #6BCB77;
+  font-weight: bold;
+}
+
+/* Exam schedules section with enhanced cloud animations */
+.exam-schedules {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-left: 8px solid #9370DB;
+}
+
+/* Enhanced animated clouds for exam section */
+.exam-schedules::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 150px;
+  top: -20px;
+  right: -20px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150"><path d="M100,10 C80,30 60,30 20,20 C20,50 40,60 100,50 C160,60 180,50 180,20 C140,30 120,30 100,10 Z" fill="%23FFFFFF" opacity="0.6"/><path d="M60,80 C40,100 20,100 10,90 C10,110 30,120 60,110 C90,120 110,110 110,90 C100,100 80,100 60,80 Z" fill="%23FFFFFF" opacity="0.6"/><g transform="translate(50, 40)" opacity="0.8"><path d="M-10,-5 L0,0 L-10,5 L-5,0 Z" fill="%23FF6B6B"/><circle cx="-12" cy="0" r="2" fill="%23FF6B6B"/></g><g transform="translate(150, 30)" opacity="0.8"><path d="M-10,-5 L0,0 L-10,5 L-5,0 Z" fill="%239370DB"/><circle cx="-12" cy="0" r="2" fill="%239370DB"/></g></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.7;
+  z-index: 0;
+  animation: cloud-float 20s ease-in-out infinite;
+}
+
+/* Cloud floating animation */
+@keyframes cloud-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Add rainbow for exam schedules section on hover */
+.exam-schedules::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  bottom: -50px;
+  right: -50px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150"><path d="M0,150 C50,50 250,50 300,150" stroke="%23FF6B6B" stroke-width="10" fill="none" opacity="0.2"/><path d="M30,150 C70,70 230,70 270,150" stroke="%23FFD166" stroke-width="10" fill="none" opacity="0.2"/><path d="M60,150 C90,90 210,90 240,150" stroke="%236BCB77" stroke-width="10" fill="none" opacity="0.2"/><path d="M90,150 C110,110 190,110 210,150" stroke="%234ECDC4" stroke-width="10" fill="none" opacity="0.2"/><path d="M120,150 C130,130 170,130 180,150" stroke="%239370DB" stroke-width="10" fill="none" opacity="0.2"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(50px);
+}
+
+.exam-schedules:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Exam cycle layout with enhanced animation effects */
+.exam-cycle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Exam period cards with enhanced interactive effects */
+.exam-period {
+  flex: 1;
+  min-width: 250px;
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Enhanced 3D hover effect for exam cards */
+.exam-period:hover {
+  transform: translateY(-15px) scale(1.05) perspective(500px) rotateX(5deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced animated decorations for exam cards */
+.exam-period::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  bottom: -40px;
+  right: -40px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all 0.5s ease;
+}
+
+/* Interactive animated decorations for each period */
+.exam-period:nth-child(1) {
+  border-left: 5px solid #FF6B6B;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><path d="M250,50 Q270,30 290,50" stroke="%23FF6B6B" stroke-width="2" fill="none" opacity="0.2"/><path d="M250,70 Q270,50 290,70" stroke="%23FF6B6B" stroke-width="2" fill="none" opacity="0.2"/></svg>');
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.exam-period:nth-child(1)::after {
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.exam-period:nth-child(1):hover::after {
+  transform: scale(1.5) rotate(15deg);
+}
+
+.exam-period:nth-child(1):hover {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><path d="M250,50 Q270,30 290,50" stroke="%23FF6B6B" stroke-width="2" fill="none" opacity="0.3"/><path d="M250,70 Q270,50 290,70" stroke="%23FF6B6B" stroke-width="2" fill="none" opacity="0.3"/><path d="M50,100 Q70,80 90,100" stroke="%23FF6B6B" stroke-width="2" fill="none" opacity="0.3"/><path d="M150,120 Q170,100 190,120" stroke="%23FF6B6B" stroke-width="2" fill="none" opacity="0.3"/><circle cx="200" cy="50" r="10" fill="%23FF6B6B" opacity="0.1"/><circle cx="100" cy="150" r="15" fill="%23FF6B6B" opacity="0.1"/></svg>');
+}
+
+.exam-period:nth-child(2) {
+  border-left: 5px solid #4ECDC4;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><circle cx="270" cy="50" r="15" fill="%234ECDC4" opacity="0.2"/><circle cx="270" cy="50" r="8" fill="%23FFFFFF" opacity="0.3"/></svg>');
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.exam-period:nth-child(2)::after {
+  background: radial-gradient(circle, rgba(78, 205, 196, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.exam-period:nth-child(2):hover::after {
+  transform: scale(1.5) rotate(-15deg);
+}
+
+.exam-period:nth-child(2):hover {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><circle cx="270" cy="50" r="15" fill="%234ECDC4" opacity="0.3"/><circle cx="270" cy="50" r="8" fill="%23FFFFFF" opacity="0.4"/><circle cx="100" cy="120" r="20" fill="%234ECDC4" opacity="0.1"/><circle cx="100" cy="120" r="10" fill="%23FFFFFF" opacity="0.2"/><circle cx="200" cy="150" r="12" fill="%234ECDC4" opacity="0.1"/><circle cx="200" cy="150" r="6" fill="%23FFFFFF" opacity="0.2"/></svg>');
+}
+
+.exam-period:nth-child(3) {
+  border-left: 5px solid #FFD166;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><path d="M250,60 L260,40 L270,60 L280,40 L290,60" stroke="%23FFD166" stroke-width="2" fill="none" opacity="0.3"/></svg>');
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.exam-period:nth-child(3)::after {
+  background: radial-gradient(circle, rgba(255, 209, 102, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.exam-period:nth-child(3):hover::after {
+  transform: scale(1.5) rotate(15deg);
+}
+
+.exam-period:nth-child(3):hover {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><path d="M250,60 L260,40 L270,60 L280,40 L290,60" stroke="%23FFD166" stroke-width="2" fill="none" opacity="0.4"/><path d="M100,160 L110,140 L120,160 L130,140 L140,160" stroke="%23FFD166" stroke-width="2" fill="none" opacity="0.4"/><path d="M50,100 L60,80 L70,100 L80,80 L90,100" stroke="%23FFD166" stroke-width="2" fill="none" opacity="0.4"/><circle cx="200" cy="120" r="10" fill="%23FFD166" opacity="0.2"/></svg>');
+}
+
+/* Enhanced exam period headings with interactive animations */
+.exam-period h3 {
+  color: #9370DB;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Interactive heading animations */
+.exam-period:hover h3 {
+  transform: scale(1.1);
+  padding-left: 10px;
+}
+
+/* Enhanced color coding for exam headings */
+.exam-period:nth-child(1) h3 {
+  color: #FF6B6B;
+}
+
+.exam-period:nth-child(1):hover h3 {
+  color: #ff3b3b;
+}
+
+.exam-period:nth-child(2) h3 {
+  color: #4ECDC4;
+}
+
+.exam-period:nth-child(2):hover h3 {
+  color: #2ebdb4;
+}
+
+.exam-period:nth-child(3) h3 {
+  color: #FFD166;
+}
+
+.exam-period:nth-child(3):hover h3 {
+  color: #ffc233;
+}
+
+/* Add decorative icon with animation before heading */
+.exam-period h3::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.exam-period:nth-child(1) h3::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,17 L3,21 L7,21 L17,11 L13,7 L3,17 Z M22.7,5.3 L18.7,1.3 C18.3,0.9 17.7,0.9 17.3,1.3 L15,3.6 L19,7.6 L21.3,5.3 C21.7,4.9 21.7,4.3 22.7,5.3 Z" fill="%23FF6B6B"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.exam-period:nth-child(2) h3::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,21.35 L10.55,20.03 C5.4,15.36 2,12.28 2,8.5 C2,5.42 4.42,3 7.5,3 C9.24,3 10.91,3.81 12,5.09 C13.09,3.81 14.76,3 16.5,3 C19.58,3 22,5.42 22,8.5 C22,12.28 18.6,15.36 13.45,20.04 L12,21.35 Z" fill="%234ECDC4"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.exam-period:nth-child(3) h3::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2 C8.13,2 5,5.13 5,9 C5,10.57 5.46,12.03 6.29,13.28 L12,22 L17.71,13.28 C18.54,12.03 19,10.57 19,9 C19,5.13 15.87,2 12,2 Z" fill="%23FFD166"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Show icon on hover */
+.exam-period:hover h3::before {
+  transform: translateY(-50%) scale(1);
+  opacity: 1;
+  left: -25px;
+}
+
+/* Enhanced calendar download button with interactive animations */
+.calendar-button {
+  display: block;
+  width: 80%;
+  max-width: 300px;
+  margin: 2rem auto 0;
+  padding: 1rem 2rem;
+  background-color: #9370DB;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 20px rgba(147, 112, 219, 0.3);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Enhanced hover effect for button */
+.calendar-button:hover {
+  background-color: #8360CB;
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(147, 112, 219, 0.4);
+}
+
+/* Button shimmer effect */
+.calendar-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: all 0.75s ease;
+}
+
+.calendar-button:hover::after {
+  left: 100%;
+}
+
+/* Enhanced leaf button decoration with animation */
+.calendar-button::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,3 L5,3 C3.9,3 3,3.9 3,5 L3,19 C3,20.1 3.9,21 5,21 L19,21 C20.1,21 21,20.1 21,19 L21,5 C21,3.9 20.1,3 19,3 Z M18,19 L6,19 L6,10 L18,10 L18,19 Z M18,8 L6,8 L6,6 L18,6 L18,8 Z M8,14 L16,14 L16,12 L8,12 L8,14 Z M8,18 L14,18 L14,16 L8,16 L8,18 Z" fill="white"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: transform 0.5s ease;
+}
+
+.calendar-button:hover::before {
+  transform: rotate(360deg);
+}
+
+/* Enhanced staggered animations for cards (like a cascading slideshow) */
+.level, .exam-period {
+  opacity: 0;
+  animation: enhanced-slide-up 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes enhanced-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Enhanced staggered animation delays */
+.level:nth-child(1), .exam-period:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.level:nth-child(2), .exam-period:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.level:nth-child(3), .exam-period:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.level:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+/* Enhanced responsive design with more interactive elements */
+@media screen and (max-width: 768px) {
+  .academics-container {
+    padding: 1.5rem;
+    margin: 1.5rem;
+  }
+  
+  .academics-container h1 {
+    font-size: 2.5rem;
+  }
+  
+  .academics-container h1::before,
+  .academics-container h1::after {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .academics-container h1::before {
+    left: 10px;
+    top: -30px;
+  }
+  
+  .academics-container h1::after {
+    right: 10px;
+    top: -30px;
+  }
+  
+  section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .level, .exam-period {
+    min-width: 100%;
+  }
+  
+  .curriculum::before,
+  .class-schedules::before,
+  .exam-schedules::before {
+    width: 100px;
+    height: 100px;
+  }
+  
+  table {
+    display: block;
+    overflow-x: auto;
+    font-size: 0.9rem;
+  }
+  
+  .calendar-button {
+    width: 100%;
+  }
+
+  /* Enhanced mobile animations that are less CPU intensive */
+  .curriculum:hover::before,
+  .class-schedules:hover::after,
+  .exam-schedules:hover::after {
+    animation: none;
+    transform: none;
+  }
+  
+  /* Simplified hover effects for mobile */
+  .level:hover,
+  .exam-period:hover,
+  section:hover {
+    transform: translateY(-5px);
+  }
+}
+
+/* Additional interactive animations */
+/* Subtle parallax effect for page background */
+@media (hover: hover) {
+  .academics-container {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .academics-container::before {
+    transform: translateZ(-10px);
+    transition: transform 0.3s ease;
+  }
+  
+  .academics-container:hover::before {
+    transform: translateZ(-20px);
+  }
+}
+
+/* Light beam animation for page */
+.academics-container::after {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 200px;
+  top: -100px;
+  left: -50%;
+  background: linear-gradient(to bottom, 
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0) 100%);
+  transform: rotate(45deg);
+  animation: light-beam 8s infinite;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+}
+
+@keyframes light-beam {
+  0%, 100% {
+    top: -100px;
+    left: -50%;
+    opacity: 0;
+  }
+  50% {
+    top: 100%;
+    left: 100%;
+    opacity: 0.3;
+  }
+}
+
+.academics-container:hover::after {
+  animation: light-beam 4s infinite;
+}
+
+/* Enhanced card flip effect */
+.exam-period {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.exam-period:active {
+  transform: rotateY(180deg);
+}
