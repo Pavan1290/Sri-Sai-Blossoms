@@ -1,0 +1,884 @@
+/*
+ * Global Responsive Styles for Sri Sai Blossoms
+ * Optimized for laptops, tablets, and mobile devices (Android 8+)
+ * Enhanced for modern mobile browsers and touch devices
+ */
+
+/* Base responsive setup */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent horizontal scroll on mobile */
+  overflow-x: hidden;
+  /* Smooth scrolling for modern browsers */
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  line-height: 1.6;
+  font-family: 'Baloo 2', 'Comic Neue', 'Comic Sans MS', sans-serif;
+  /* Improve text rendering on mobile */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent text selection issues on mobile */
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Images and media elements */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  /* Prevent drag on mobile */
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
+}
+
+/* Responsive images with loading optimization */
+img {
+  /* Improve image loading on slow connections */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Container system with better mobile margins */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Flexible typography scale optimized for mobile readability */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  word-wrap: break-word;
+  /* Prevent text overflow on small screens */
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+p {
+  margin: 0 0 1rem 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  /* Better line height for mobile reading */
+  line-height: 1.6;
+}
+
+/* Enhanced button responsiveness for touch devices */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  /* Minimum touch target size for accessibility */
+  min-height: 48px;
+  min-width: 48px;
+  /* Prevent text selection on buttons */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Better button appearance on mobile */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Prevent button zoom on iOS */
+  touch-action: manipulation;
+}
+
+/* Enhanced grid system improvements */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  /* Prevent horizontal scroll on mobile */
+  width: 100%;
+  max-width: 100%;
+}
+
+.col {
+  flex: 1;
+  padding: 0 15px;
+  min-width: 0;
+  /* Prevent flex items from overflowing */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Enhanced form elements responsiveness for mobile */
+input,
+textarea,
+select,
+button {
+  max-width: 100%;
+  /* Prevent zoom on iOS when font-size is less than 16px */
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 8px;
+  padding: 12px 16px;
+  /* Better mobile appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Prevent autocomplete background color */
+  -webkit-autofill: none;
+  /* Better focus handling on mobile */
+  outline: none;
+  border: 2px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #FF9E1B;
+  box-shadow: 0 0 0 3px rgba(255, 158, 27, 0.1);
+}
+
+/* Mobile-optimized text areas */
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Enhanced Mobile Styles (320px-575px) - Android 8+ Optimized */
+@media (max-width: 575px) {
+  html {
+    font-size: 14px;
+    /* Better scroll behavior on mobile */
+    scroll-padding-top: 80px;
+  }
+  
+  .container {
+    padding: 0 12px;
+    /* Prevent content from touching screen edges */
+    margin: 0 auto;
+  }
+  
+  /* Enhanced mobile typography */
+  h1 {
+    font-size: 2rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    /* Better text rendering on small screens */
+    letter-spacing: -0.02em;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
+  }
+  
+  h4 {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+  
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  /* Enhanced mobile buttons */
+  .btn {
+    padding: 16px 24px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 12px;
+    /* Better touch response */
+    min-height: 52px;
+    font-weight: 600;
+    /* Prevent double-tap zoom */
+    touch-action: manipulation;
+  }
+  
+  /* Mobile grid improvements */
+  .row {
+    margin: 0 -12px;
+    flex-direction: column;
+  }
+  
+  .col {
+    padding: 0 12px;
+    flex: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* Enhanced mobile form elements */
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    /* Better mobile interaction */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  
+  /* Mobile-specific utility classes */
+  .mobile-full-width {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .mobile-text-center {
+    text-align: center !important;
+  }
+  
+  .mobile-margin-sm {
+    margin: 10px 0 !important;
+  }
+  
+  .mobile-padding-sm {
+    padding: 10px !important;
+  }
+}
+
+/* Enhanced Large Mobile (576-767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .container {
+    max-width: 540px;
+    padding: 0 16px;
+  }
+  
+  h1 {
+    font-size: 2.4rem;
+    letter-spacing: -0.01em;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  .btn {
+    padding: 14px 28px;
+    display: inline-block;
+    width: auto;
+    min-width: 160px;
+    margin: 0 8px 12px 0;
+  }
+  
+  .row {
+    margin: 0 -16px;
+  }
+  
+  .col {
+    padding: 0 16px;
+  }
+  
+  /* Two-column layout for larger mobile screens */
+  .col-mobile-half {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+/* Enhanced Tablet (768-991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    max-width: 720px;
+    padding: 0 20px;
+  }
+  
+  h1 {
+    font-size: 2.8rem;
+  }
+  
+  h2 {
+    font-size: 2.2rem;
+  }
+  
+  h3 {
+    font-size: 1.8rem;
+  }
+  
+  .btn {
+    padding: 14px 32px;
+    font-size: 1.1rem;
+  }
+  
+  .col {
+    flex: 50%;
+    max-width: 50%;
+  }
+  
+  /* Three-column layout for tablets */
+  .col-tablet-third {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+  }
+}
+
+/* Enhanced Small Desktop/Large Tablet (992-1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .container {
+    max-width: 960px;
+    padding: 0 24px;
+  }
+  
+  h1 {
+    font-size: 3.2rem;
+    letter-spacing: -0.02em;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+  }
+  
+  h3 {
+    font-size: 2rem;
+  }
+  
+  .btn {
+    padding: 16px 36px;
+    font-size: 1.1rem;
+  }
+  
+  .col {
+    flex: 33.333%;
+    max-width: 33.333%;
+  }
+}
+
+/* Enhanced Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+    padding: 0 30px;
+  }
+  
+  h1 {
+    font-size: 3.8rem;
+    letter-spacing: -0.03em;
+  }
+  
+  h2 {
+    font-size: 2.8rem;
+  }
+  
+  h3 {
+    font-size: 2.3rem;
+  }
+  
+  .btn {
+    padding: 18px 40px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Enhanced Extra Large Desktop (1400px+) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+    padding: 0 40px;
+  }
+  
+  h1 {
+    font-size: 4.5rem;
+    letter-spacing: -0.04em;
+  }
+  
+  h2 {
+    font-size: 3.2rem;
+  }
+  
+  h3 {
+    font-size: 2.6rem;
+  }
+  
+  .btn {
+    padding: 20px 48px;
+    font-size: 1.3rem;
+  }
+}
+
+/* Enhanced High DPI/Retina Display Optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+  
+  /* Better image quality on high DPI displays */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Enhanced Touch device optimizations for Android 8+ */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects that don't work on touch */
+  .btn:hover {
+    transform: none;
+  }
+  
+  /* Add proper touch feedback */
+  .btn:active {
+    transform: scale(0.96);
+    transition: transform 0.1s ease;
+  }
+  
+  /* Increase touch targets for better accessibility */
+  button, 
+  a, 
+  input[type="submit"], 
+  input[type="button"], 
+  .btn,
+  .nav-links,
+  .clickable {
+    min-height: 48px;
+    min-width: 48px;
+    /* Add padding for easier touching */
+    padding: max(12px, 0.75rem);
+  }
+  
+  /* Improve form interactions on touch devices */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    /* More prominent focus for touch devices */
+    box-shadow: 0 0 0 4px rgba(255, 158, 27, 0.2);
+  }
+  
+  /* Prevent text selection on interactive elements */
+  .btn,
+  .nav-links,
+  .clickable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+/* Enhanced Mobile Device Specific Optimizations */
+
+/* Small mobile devices (320px-360px) */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 8px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.4rem;
+  }
+  
+  .btn {
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    min-height: 50px;
+  }
+  
+  /* Stack elements vertically on very small screens */
+  .row {
+    flex-direction: column;
+  }
+}
+
+/* Landscape orientation for mobile phones */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  /* Reduce vertical spacing in landscape */
+  h1, h2, h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .btn {
+    padding: 10px 24px;
+    margin-bottom: 8px;
+  }
+}
+
+/* Foldable phone support */
+@media screen and (min-width: 280px) and (max-width: 653px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  /* Ensure content works on narrow foldable screens */
+  .col {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Android Chrome specific optimizations */
+@supports (-webkit-touch-callout: none) {
+  /* Remove rubber band scrolling on Android */
+  body {
+    overscroll-behavior: contain;
+  }
+  
+  /* Improve scrolling performance */
+  .container,
+  .row {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
+
+/* Enhanced Accessibility and Motion Preferences */
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Enhanced Dark mode support for Android 8+ */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  .container {
+    background-color: transparent;
+  }
+  
+  .btn {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+  }
+  
+  input,
+  textarea,
+  select {
+    background-color: #1e1e1e;
+    color: #fff;
+    border-color: #555;
+  }
+}
+
+/* Enhanced Print styles */
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  .navbar,
+  .footer,
+  .btn,
+  .menu-icon,
+  .nav-menu {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+    font-size: 14pt;
+    margin-bottom: 10pt;
+  }
+  
+  h1 {
+    font-size: 18pt;
+  }
+  
+  h2 {
+    font-size: 16pt;
+  }
+  
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+  
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  .row {
+    flex-direction: column;
+  }
+  
+  .col {
+    flex: 100%;
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
+}
+
+/* Enhanced Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Enhanced Focus styles for keyboard navigation */
+*:focus {
+  outline: 3px solid #FF9E1B;
+  outline-offset: 2px;
+  /* Ensure focus is visible on all backgrounds */
+  box-shadow: 0 0 0 5px rgba(255, 158, 27, 0.2);
+}
+
+/* Specific focus styles for interactive elements */
+.btn:focus,
+.nav-links:focus,
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: 3px solid #FF9E1B;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px rgba(255, 158, 27, 0.2);
+}
+
+/* Skip to content link - improved for mobile */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 10px;
+  background: #FF9E1B;
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  z-index: 10001;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  border: 2px solid #fff;
+}
+
+.skip-link:focus {
+  top: 10px;
+  outline: 3px solid #fff;
+}
+
+/* Enhanced mobile accessibility */
+@media (max-width: 767px) {
+  /* Larger touch targets for better accessibility */
+  .btn,
+  .nav-links,
+  input,
+  select,
+  textarea {
+    min-height: 52px;
+    font-size: 16px;
+  }
+  
+  /* Better spacing for screen readers */
+  .sr-only + * {
+    margin-top: 0.5rem;
+  }
+}
+
+/* Mobile-First Utility Classes for Enhanced Responsiveness */
+
+/* Visibility utilities */
+.mobile-show {
+  display: block !important;
+}
+
+.mobile-hide {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .mobile-show {
+    display: none !important;
+  }
+  
+  .mobile-hide {
+    display: block !important;
+  }
+}
+
+/* Responsive spacing utilities */
+.spacing-xs { margin: 0.25rem; }
+.spacing-sm { margin: 0.5rem; }
+.spacing-md { margin: 1rem; }
+.spacing-lg { margin: 1.5rem; }
+.spacing-xl { margin: 2rem; }
+
+.padding-xs { padding: 0.25rem; }
+.padding-sm { padding: 0.5rem; }
+.padding-md { padding: 1rem; }
+.padding-lg { padding: 1.5rem; }
+.padding-xl { padding: 2rem; }
+
+/* Mobile-specific margin adjustments */
+@media (max-width: 767px) {
+  .spacing-xs { margin: 0.125rem; }
+  .spacing-sm { margin: 0.25rem; }
+  .spacing-md { margin: 0.5rem; }
+  .spacing-lg { margin: 0.75rem; }
+  .spacing-xl { margin: 1rem; }
+  
+  .padding-xs { padding: 0.125rem; }
+  .padding-sm { padding: 0.25rem; }
+  .padding-md { padding: 0.5rem; }
+  .padding-lg { padding: 0.75rem; }
+  .padding-xl { padding: 1rem; }
+}
+
+/* Responsive text alignment */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+@media (max-width: 767px) {
+  .mobile-text-left { text-align: left !important; }
+  .mobile-text-center { text-align: center !important; }
+  .mobile-text-right { text-align: right !important; }
+}
+
+/* Responsive display utilities */
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-flex { display: flex; }
+.d-none { display: none; }
+
+/* Mobile-specific display overrides */
+@media (max-width: 767px) {
+  .mobile-d-block { display: block !important; }
+  .mobile-d-none { display: none !important; }
+  .mobile-d-flex { display: flex !important; }
+}
+
+/* Responsive flex utilities */
+.flex-column { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.justify-content-center { justify-content: center; }
+.justify-content-between { justify-content: space-between; }
+.align-items-center { align-items: center; }
+.flex-wrap { flex-wrap: wrap; }
+
+@media (max-width: 767px) {
+  .mobile-flex-column { flex-direction: column !important; }
+  .mobile-justify-center { justify-content: center !important; }
+  .mobile-align-center { align-items: center !important; }
+}
+
+/* Performance optimizations for mobile */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Smooth scrolling container for mobile */
+.smooth-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Mobile-optimized image loading */
+.lazy-img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lazy-img.loaded {
+  opacity: 1;
+}
+
+/* Safe area handling for newer mobile devices */
+@supports (padding: max(0px)) {
+  .safe-area-padding {
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+    padding-top: max(12px, env(safe-area-inset-top));
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+}
+
+/* Enhanced mobile scroll performance */
+@media (max-width: 767px) {
+  .container,
+  .row,
+  .col {
+    /* Enable hardware acceleration for better scroll performance */
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  /* Optimize touch scrolling */
+  body {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+}

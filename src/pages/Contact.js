@@ -1,10 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Contact.css'
+
 const Contact = () => {
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
+
+  // Handle input changes
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Logic to handle form submission
-    alert('Your message has been sent. We will get back to you shortly!');
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+        alert('Your message has been sent successfully! We will get back to you shortly.');
+      } else {
+        setSubmitStatus('error');
+        alert(result.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+      alert('Failed to send message. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -16,29 +71,27 @@ const Contact = () => {
         <div className="contact-info">
           <div className="info-block">
             <h2>Address</h2>
-            <p>Sri Sai Blossoms School</p>
-            <p>123 Education Lane</p>
-            <p>Knowledge City, State - 500001</p>
+            <p>Sri Sai Blossoms</p>
+            <p>Allanahalli Layout, Alanahalli Village</p>
+            <p>Mysuru, Karnataka 570029</p>
           </div>
           
           <div className="info-block">
             <h2>Phone Numbers</h2>
-            <p>Main Office: +91 98765 43210</p>
-            <p>Admissions: +91 98765 43211</p>
-            <p>Transport: +91 98765 43212</p>
+            <p>Main Office: +91 97403 72589</p>
+            <p>Admissions: +91 97403 72589</p>
           </div>
           
           <div className="info-block">
             <h2>Email</h2>
-            <p>General Inquiries: info@srisaiblossoms.edu</p>
-            <p>Admissions: admissions@srisaiblossoms.edu</p>
-            <p>Principal: principal@srisaiblossoms.edu</p>
+            <p>General Inquiries: srisaiblossoms@gmail.com</p>
+            <p>Admissions: srisaiblossoms@gmail.com</p>
           </div>
           
           <div className="info-block">
             <h2>Office Hours</h2>
-            <p>Monday - Friday: 8:00 AM - 4:00 PM</p>
-            <p>Saturday: 9:00 AM - 12:00 PM</p>
+            <p>Monday - Friday: 9:00 AM - 4:00 PM</p>
+            <p>Saturday: 9:00 AM - 1:00 PM</p>
             <p>Sunday & Holidays: Closed</p>
           </div>
         </div>
@@ -48,39 +101,103 @@ const Contact = () => {
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
-              <input type="text" id="name" name="name" required />
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                value={formData.name}
+                onChange={handleChange}
+                required 
+              />
             </div>
             
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input type="email" id="email" name="email" required />
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                value={formData.email}
+                onChange={handleChange}
+                required 
+              />
             </div>
             
             <div className="form-group">
               <label htmlFor="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" />
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                value={formData.phone}
+                onChange={handleChange}
+              />
             </div>
             
             <div className="form-group">
               <label htmlFor="subject">Subject</label>
-              <input type="text" id="subject" name="subject" required />
+              <input 
+                type="text" 
+                id="subject" 
+                name="subject" 
+                value={formData.subject}
+                onChange={handleChange}
+                required 
+              />
             </div>
             
             <div className="form-group">
               <label htmlFor="message">Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="5" 
+                value={formData.message}
+                onChange={handleChange}
+                required
+              ></textarea>
             </div>
             
-            <button type="submit" className="submit-button">Send Message</button>
+            <button 
+              type="submit" 
+              className={`submit-button ${isSubmitting ? 'submitting' : ''}`}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
+            
+            {submitStatus === 'success' && (
+              <div className="submit-status success">
+                ✅ Message sent successfully!
+              </div>
+            )}
+            
+            {submitStatus === 'error' && (
+              <div className="submit-status error">
+                ❌ Failed to send message. Please try again.
+              </div>
+            )}
           </form>
         </div>
       </div>
       
       <div className="map-location">
-        <h2>Map Location</h2>
+        <h2>Find Us</h2>
         <div className="map">
-          {/* You would add your Google Maps or other map integration here */}
-          <p>Map will be displayed here. Please integrate Google Maps or another map service.</p>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.4!2d76.6394!3d12.2958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDE3JzQ0LjkiTiA3NsKwMzgnMjEuOCJF!5e0!3m2!1sen!2sin!4v1234567890!5m2!1sen!2sin"
+            width="100%"
+            height="400"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Sri Sai Blossoms Location - Allanahalli Layout, Mysuru"
+          ></iframe>
+        </div>
+        <div className="location-note">
+          <p>📍 Located in Allanahalli Layout, easily accessible from main Mysuru roads</p>
+          <p>🚗 Parking available on premises</p>
         </div>
       </div>
     </div>

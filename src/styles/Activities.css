@@ -1,17 +1,20 @@
 /* Activities page styling */
 
 .activities-container {
-  background-color: #f8f9ff;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 /* Activity cards with playful design */
 .activity-card {
   border-radius: 8px;
-  background-color: #fff;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
   overflow: hidden;
   position: relative;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px var(--shadow-light);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -20,7 +23,7 @@
 
 .activity-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 25px var(--shadow-medium);
 }
 
 .activity-image-container {
@@ -49,12 +52,12 @@
 
 .activity-title {
   font-size: 1.5rem;
-  color: #FF9E1B;
+  color: var(--primary-color);
   margin-bottom: 0.5rem;
 }
 
 .activity-description {
-  color: #6c757d;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1rem;
   flex-grow: 1;
@@ -68,8 +71,8 @@
 }
 
 .age-group {
-  background-color: #f0f7ff;
-  color: #6ECBF5;
+  background-color: var(--bg-secondary);
+  color: var(--secondary-color);
   font-size: 0.8rem;
   padding: 5px 12px;
   border-radius: 20px;
@@ -111,25 +114,25 @@
 }
 
 .category-tab {
-  background-color: #fff;
-  border: none;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
   padding: 10px 20px;
   border-radius: 25px;
   font-family: inherit;
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  color: #666;
+  box-shadow: 0 3px 10px var(--shadow-light);
+  color: var(--text-primary);
 }
 
 .category-tab:hover {
-  background-color: #f0f7ff;
+  background-color: var(--bg-secondary);
 }
 
 .category-tab.active {
-  background-color: #6ECBF5;
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--text-on-primary);
   box-shadow: 0 5px 15px rgba(110, 203, 245, 0.3);
 }
 
@@ -143,8 +146,8 @@
 
 .benefit-tag {
   font-size: 0.7rem;
-  background-color: #ffefd5;
-  color: #FF9E1B;
+  background-color: var(--bg-tertiary);
+  color: var(--primary-color);
   padding: 3px 10px;
   border-radius: 10px;
 }
@@ -157,27 +160,367 @@
   padding: 20px 0;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Enhanced Responsive Design for Activities Page */
+
+/* Large Desktop (1400px+) */
+@media (min-width: 1400px) {
   .activities-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 40px;
+  }
+  
+  .activity-card {
+    padding: 2.5rem;
+  }
+  
+  .activity-title {
+    font-size: 1.8rem;
+  }
+  
+  .activity-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  
+  .category-tab {
+    font-size: 1.1rem;
+    padding: 12px 24px;
   }
 }
 
-@media (max-width: 480px) {
+/* Desktop (1200px - 1399px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
   .activities-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 35px;
+  }
+  
+  .activity-card {
+    padding: 2.2rem;
+  }
+  
+  .activity-title {
+    font-size: 1.7rem;
+  }
+  
+  .activity-description {
+    font-size: 1.05rem;
+  }
+}
+
+/* Small Desktop/Large Tablet (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .activities-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .activity-card {
+    padding: 2rem;
+  }
+  
+  .activity-title {
+    font-size: 1.6rem;
+  }
+  
+  .activity-description {
+    font-size: 1rem;
+  }
+  
+  .category-tabs {
+    gap: 8px;
+  }
+  
+  .category-tab {
+    font-size: 1rem;
+    padding: 10px 18px;
+  }
+}
+
+/* Tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .activities-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 15px 0;
+  }
+  
+  .activity-card {
+    padding: 1.8rem;
+  }
+  
+  .activity-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .activity-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .category-tabs {
+    gap: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .category-tab {
+    font-size: 0.95rem;
+    padding: 10px 16px;
+  }
+  
+  .age-group {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+  
+  .benefit-tags {
+    gap: 6px;
+  }
+  
+  .benefit-tag {
+    font-size: 0.65rem;
+    padding: 2px 8px;
+  }
+}
+
+/* Large Mobile (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .activities-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .activity-card {
+    padding: 1.5rem;
+  }
+  
+  .activity-title {
+    font-size: 1.4rem;
+  }
+  
+  .activity-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
   
   .category-tabs {
     gap: 5px;
+    justify-content: center;
+  }
+  
+  .category-tab {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+  }
+  
+  .age-group {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+  
+  .benefit-tag {
+    font-size: 0.6rem;
+    padding: 2px 6px;
+  }
+  
+  .activity-footer {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+}
+
+/* Small Mobile (max-width: 575px) */
+@media (max-width: 575px) {
+  .activities-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 10px 0;
+  }
+  
+  .activity-card {
+    padding: 1.2rem;
+    border-radius: 12px;
+  }
+  
+  .activity-card::before {
+    width: 60px;
+    height: 60px;
+    top: -10px;
+    right: -10px;
+  }
+  
+  .activity-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .activity-description {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+  }
+  
+  .category-tabs {
+    gap: 4px;
+    justify-content: center;
+    padding: 0 10px;
+    flex-wrap: wrap;
   }
   
   .category-tab {
     font-size: 0.8rem;
-    padding: 8px 15px;
+    padding: 8px 12px;
+    border-radius: 15px;
+    min-width: auto;
+  }
+  
+  .age-group {
+    font-size: 0.65rem;
+    padding: 3px 6px;
+    border-radius: 12px;
+  }
+  
+  .benefit-tags {
+    gap: 4px;
+    margin: 8px 0;
+  }
+  
+  .benefit-tag {
+    font-size: 0.55rem;
+    padding: 2px 5px;
+    border-radius: 8px;
+  }
+  
+  .activity-footer {
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+    margin-top: 8px;
   }
 }
+
+/* Extra Small Mobile (max-width: 360px) */
+@media (max-width: 360px) {
+  .activities-grid {
+    gap: 12px;
+  }
+  
+  .activity-card {
+    padding: 1rem;
+  }
+  
+  .activity-title {
+    font-size: 1.2rem;
+  }
+  
+  .activity-description {
+    font-size: 0.8rem;
+  }
+  
+  .category-tab {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+  
+  .age-group {
+    font-size: 0.6rem;
+    padding: 2px 5px;
+  }
+  
+  .benefit-tag {
+    font-size: 0.5rem;
+    padding: 1px 4px;
+  }
+}
+
+/* Landscape orientation for mobile */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  .activities-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+  }
+  
+  .activity-card {
+    padding: 1rem;
+  }
+  
+  .activity-title {
+    font-size: 1.2rem;
+  }
+  
+  .activity-description {
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
+  
+  .category-tabs {
+    gap: 3px;
+  }
+  
+  .category-tab {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .activity-card:hover {
+    transform: none;
+  }
+  
+  .activity-card:active {
+    transform: scale(0.98);
+  }
+  
+  .category-tab:hover {
+    background-color: #f0f7ff;
+  }
+  
+  .category-tab:active {
+    background-color: #6ECBF5;
+    color: white;
+  }
+  
+  /* Ensure proper touch targets */
+  .category-tab {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .activity-title {
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .activity-card {
+    animation: none;
+    transition: none;
+  }
+  
+  .category-tab {
+    transition: none;
+  }
+}
+
+/* Focus styles for accessibility */
+.activity-card:focus,
+.category-tab:focus {
+  outline: 2px solid #FF9E1B;
+  outline-offset: 2px;
+}
+
+/* Remove the incorrect dark mode media query - we use [data-theme="dark"] instead */
 
 .filter-bar {
   margin-bottom: 2rem;

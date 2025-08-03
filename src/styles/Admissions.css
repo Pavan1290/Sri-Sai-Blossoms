@@ -164,11 +164,13 @@ body {
 
 /* Section styling for each component */
 .admissions-container section {
-  background-color: #FFFFFF;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
   border-radius: 20px;
   padding: 2rem;
   margin-bottom: 3rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px var(--shadow-light);
   position: relative;
   z-index: 1;
   border-left: 8px solid;
@@ -178,7 +180,7 @@ body {
 
 .admissions-container section:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 40px var(--shadow-medium);
 }
 
 /* Different border colors for each section */
@@ -493,27 +495,197 @@ body {
   box-shadow: 0 2px 10px rgba(33, 150, 243, 0.3);
 }
 
-/* Responsive design adjustments */
-@media screen and (max-width: 1100px) {
+/* Enhanced responsive design for Admissions page */
+
+/* Large Desktop (1400px+) */
+@media screen and (min-width: 1400px) {
+  .admissions-container {
+    max-width: 1300px;
+    padding: 4rem;
+    margin: 4rem auto;
+  }
+  
+  .admissions-container h1 {
+    font-size: 5rem;
+  }
+  
+  .admissions-container h1::before,
+  .admissions-container h1::after {
+    width: 100px;
+    height: 100px;
+  }
+  
+  section h2 {
+    font-size: 2.8rem;
+  }
+  
+  .admission-process li {
+    padding: 2rem 1.5rem 2rem 5rem;
+    font-size: 1.2rem;
+  }
+  
+  .admission-process li::before {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+  }
+  
+  .download-button {
+    padding: 18px 36px;
+    font-size: 1.2rem;
+  }
+  
+  table {
+    font-size: 1.1rem;
+  }
+  
+  th, td {
+    padding: 16px 20px;
+  }
+}
+
+/* Desktop (1200px - 1399px) */
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  .admissions-container {
+    padding: 3.5rem;
+    margin: 3.5rem auto;
+  }
+  
+  .admissions-container h1 {
+    font-size: 4.5rem;
+  }
+  
+  section h2 {
+    font-size: 2.5rem;
+  }
+  
+  .admission-process li {
+    padding: 1.8rem 1.3rem 1.8rem 4.5rem;
+    font-size: 1.15rem;
+  }
+  
+  .admission-process li::before {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.8rem;
+  }
+}
+
+/* Small Desktop/Large Tablet (992px - 1199px) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .admissions-container {
+    padding: 3rem;
+    margin: 3rem auto;
+  }
+  
+  .admissions-container h1 {
+    font-size: 4rem;
+  }
+  
+  .admissions-container h1::before,
+  .admissions-container h1::after {
+    width: 80px;
+    height: 80px;
+  }
+  
+  section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .admission-process li {
+    padding: 1.6rem 1.2rem 1.6rem 4rem;
+    font-size: 1.1rem;
+  }
+  
+  .admission-process li::before {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.6rem;
+  }
+  
+  .download-button {
+    padding: 14px 28px;
+    font-size: 1.05rem;
+  }
+  
+  .eligibility table {
+    font-size: 1rem;
+  }
+  
+  th, td {
+    padding: 12px 16px;
+  }
+}
+
+/* Tablet (768px - 991px) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
   .admissions-container {
     padding: 2.5rem;
-    margin: 2rem 1.5rem;
+    margin: 2.5rem 1rem;
   }
   
   .admissions-container h1 {
     font-size: 3.5rem;
   }
   
+  .admissions-container h1::before,
+  .admissions-container h1::after {
+    width: 70px;
+    height: 70px;
+  }
+  
+  section {
+    margin-bottom: 2.5rem;
+    padding: 1.8rem;
+  }
+  
+  section h2 {
+    font-size: 2rem;
+  }
+  
+  section p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  
+  .admission-process li {
+    padding: 1.4rem 1rem 1.4rem 3.5rem;
+    font-size: 1.05rem;
+  }
+  
+  .admission-process li::before {
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1.4rem;
+  }
+  
+  .application-forms li {
+    padding-left: 2.2rem;
+    font-size: 1.05rem;
+  }
+  
+  .download-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  
   .eligibility table {
     display: block;
     overflow-x: auto;
+    white-space: nowrap;
+    font-size: 0.95rem;
+  }
+  
+  th, td {
+    padding: 10px 12px;
   }
 }
 
-@media screen and (max-width: 768px) {
+/* Large Mobile (576px - 767px) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
   .admissions-container {
     padding: 2rem;
-    margin: 1.5rem 1rem;
+    margin: 2rem 0.5rem;
   }
   
   .admissions-container h1 {
@@ -522,22 +694,313 @@ body {
   
   .admissions-container h1::before,
   .admissions-container h1::after {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
+  }
+  
+  section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 15px;
+  }
+  
+  section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  section p {
+    font-size: 1rem;
+    line-height: 1.5;
   }
   
   .admission-process li {
-    padding: 1.2rem 1rem 1.2rem 4rem;
+    padding: 1.2rem 0.8rem 1.2rem 3rem;
+    font-size: 1rem;
+    border-radius: 12px;
   }
   
   .admission-process li::before {
     width: 2.5rem;
     height: 2.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .application-forms li {
+    padding-left: 2rem;
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .application-forms li::before {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+  
+  .download-button {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1rem;
+    border-radius: 20px;
+  }
+  
+  .eligibility table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+  
+  th, td {
+    padding: 8px 10px;
+  }
+}
+
+/* Small Mobile (max-width: 575px) */
+@media screen and (max-width: 575px) {
+  .admissions-container {
+    padding: 1.5rem;
+    margin: 1.5rem 0.25rem;
+    border-radius: 20px;
+  }
+  
+  .admissions-container h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .admissions-container h1::before,
+  .admissions-container h1::after {
+    width: 50px;
+    height: 50px;
+  }
+  
+  section {
+    margin-bottom: 1.5rem;
+    padding: 1.2rem;
+    border-radius: 12px;
+  }
+  
+  section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+  }
+  
+  section p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-align: justify;
+  }
+  
+  .admission-process li {
+    padding: 1rem 0.6rem 1rem 2.5rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    border-radius: 10px;
+  }
+  
+  .admission-process li::before {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    left: 0.3rem;
+  }
+  
+  .application-forms {
+    padding: 1rem;
+  }
+  
+  .application-forms li {
+    padding-left: 1.8rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .application-forms li::before {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+  
+  .download-button {
+    width: 100%;
+    padding: 16px 18px;
+    font-size: 1rem;
+    border-radius: 25px;
+    margin-top: 10px;
+  }
+  
+  .eligibility table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    border-radius: 8px;
+  }
+  
+  th, td {
+    padding: 6px 8px;
+  }
+  
+  th {
+    font-size: 0.75rem;
+    background-color: #f8f9fa;
+  }
+  
+  .age-requirements::before,
+  .application-forms::before {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Extra Small Mobile (max-width: 360px) */
+@media screen and (max-width: 360px) {
+  .admissions-container {
+    padding: 1rem;
+    margin: 1rem 0.1rem;
+  }
+  
+  .admissions-container h1 {
+    font-size: 2.2rem;
+  }
+  
+  .admissions-container h1::before,
+  .admissions-container h1::after {
+    width: 40px;
+    height: 40px;
+  }
+  
+  section {
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  section h2 {
+    font-size: 1.4rem;
+  }
+  
+  section p {
+    font-size: 0.9rem;
+  }
+  
+  .admission-process li {
+    padding: 0.8rem 0.5rem 0.8rem 2.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .admission-process li::before {
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .application-forms li {
+    padding-left: 1.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .download-button {
+    padding: 14px 16px;
+    font-size: 0.9rem;
+  }
+  
+  table {
+    font-size: 0.75rem;
+  }
+  
+  th, td {
+    padding: 4px 6px;
+  }
+}
+
+/* Landscape orientation for mobile */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  .admissions-container {
+    margin: 1rem 0.5rem;
+  }
+  
+  .admissions-container h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  section {
+    margin-bottom: 1.2rem;
+    padding: 1rem;
+  }
+  
+  section h2 {
     font-size: 1.5rem;
   }
   
-  .application-forms .download-button {
-    width: 100%;
-    padding: 1rem;
+  .admission-process li {
+    padding: 0.8rem 0.6rem 0.8rem 2rem;
+  }
+  
+  .admission-process li::before {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.8rem;
   }
 }
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  section:hover {
+    transform: none;
+  }
+  
+  section:active {
+    transform: scale(0.98);
+  }
+  
+  .download-button:hover {
+    transform: none;
+  }
+  
+  .download-button:active {
+    transform: scale(0.98);
+  }
+  
+  /* Ensure proper touch targets */
+  .download-button {
+    min-height: 48px;
+  }
+  
+  .admission-process li {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .admissions-container h1,
+  section h2 {
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  section,
+  .download-button,
+  .age-requirements::before,
+  .application-forms::before {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Focus styles for accessibility */
+section:focus,
+.download-button:focus {
+  outline: 2px solid #FF9E1B;
+  outline-offset: 2px;
+}
+
+/* Remove the incorrect dark mode media query - we use [data-theme="dark"] instead */

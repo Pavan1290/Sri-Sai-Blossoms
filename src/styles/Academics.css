@@ -5,7 +5,7 @@
 
 /* Nature-themed page background with animated elements */
 body {
-  background-color: #E8F9FD;
+  background-color: var(--bg-primary);
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M30,50 Q40,30 50,50" stroke="%236BCB77" stroke-width="2" fill="none" opacity="0.3"/><path d="M150,30 Q160,10 170,30" stroke="%236BCB77" stroke-width="2" fill="none" opacity="0.3"/><path d="M80,100 Q90,80 100,100" stroke="%236BCB77" stroke-width="2" fill="none" opacity="0.3"/><circle cx="30" cy="20" r="3" fill="%234ECDC4" opacity="0.3"/><circle cx="170" cy="50" r="2" fill="%23FF6B6B" opacity="0.3"/><circle cx="100" cy="80" r="2" fill="%23FFD166" opacity="0.3"/><path d="M140,120 l15,-15 l15,15 l-15,15 z" fill="%239370DB" opacity="0.2"/><path d="M40,150 l10,-10 l10,10 l-10,10 z" fill="%234D96FF" opacity="0.2"/></svg>');
   background-attachment: fixed;
   position: relative;
@@ -39,7 +39,7 @@ body::before {
   max-width: 1200px;
   margin: 3rem auto;
   padding: 2rem;
-  background-color: white;
+  background-color: var(--bg-card);
   border-radius: 25px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
   position: relative;
@@ -114,17 +114,17 @@ body::before {
   margin-bottom: 2rem;
   font-family: 'Fredoka One', cursive;
   position: relative;
-  color: #9370DB;
-  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+  color: var(--primary-color);
+  text-shadow: 3px 3px 0px var(--shadow-light);
   animation: color-pulse 8s infinite;
 }
 
 /* Color pulsing animation */
 @keyframes color-pulse {
-  0%, 100% { color: #9370DB; text-shadow: 3px 3px 0px rgba(147, 112, 219, 0.2); }
-  25% { color: #FF6B6B; text-shadow: 3px 3px 0px rgba(255, 107, 107, 0.2); }
-  50% { color: #4ECDC4; text-shadow: 3px 3px 0px rgba(78, 205, 196, 0.2); }
-  75% { color: #FFD166; text-shadow: 3px 3px 0px rgba(255, 209, 102, 0.2); }
+  0%, 100% { color: var(--primary-color); text-shadow: 3px 3px 0px var(--shadow-light); }
+  25% { color: var(--accent-color); text-shadow: 3px 3px 0px var(--shadow-light); }
+  50% { color: var(--secondary-color); text-shadow: 3px 3px 0px var(--shadow-light); }
+  75% { color: var(--status-warning); text-shadow: 3px 3px 0px var(--shadow-light); }
 }
 
 /* Animated cartoon bird decoration for heading */
@@ -247,13 +247,13 @@ section {
 /* Enhanced hover effect with multiple properties */
 section:hover {
   transform: translateY(-15px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 40px var(--shadow-medium);
+  background-color: var(--bg-overlay);
 }
 
 /* Section headings with animated decoration */
 section h2 {
-  color: #FF6B6B;
+  color: var(--accent-color);
   font-family: 'Fredoka One', cursive;
   font-size: 2.2rem;
   margin-bottom: 1.5rem;
@@ -394,10 +394,12 @@ section:hover h2::before {
 .level {
   flex: 1;
   min-width: 250px;
-  background: white;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
   border-radius: 15px;
   padding: 1.5rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 8px 20px var(--shadow-light);
   position: relative;
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -407,7 +409,7 @@ section:hover h2::before {
 /* Enhanced hover effect with 3D transformation */
 .level:hover {
   transform: translateY(-15px) rotate(2deg) perspective(500px) rotateX(5deg);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px var(--shadow-medium);
 }
 
 /* Interactive sparkle effect on hover */
@@ -498,7 +500,7 @@ section:hover h2::before {
 
 /* Level headings with enhanced animations */
 .level h3 {
-  color: #4D96FF;
+  color: var(--text-primary);
   font-family: 'Fredoka One', cursive;
   font-size: 1.4rem;
   margin-bottom: 1rem;
@@ -513,35 +515,35 @@ section:hover h2::before {
 
 /* Interactive color coding for level headings */
 .level:nth-child(1) h3 {
-  color: #FF6B6B;
+  color: var(--accent-color);
 }
 
 .level:nth-child(1):hover h3 {
-  color: #ff3b3b;
+  color: var(--accent-dark);
 }
 
 .level:nth-child(2) h3 {
-  color: #4ECDC4;
+  color: var(--secondary-color);
 }
 
 .level:nth-child(2):hover h3 {
-  color: #2ebdb4;
+  color: var(--secondary-dark);
 }
 
 .level:nth-child(3) h3 {
-  color: #FFD166;
+  color: var(--status-warning);
 }
 
 .level:nth-child(3):hover h3 {
-  color: #ffc233;
+  color: var(--primary-color);
 }
 
 .level:nth-child(4) h3 {
-  color: #9370DB;
+  color: var(--primary-color);
 }
 
 .level:nth-child(4):hover h3 {
-  color: #7a4fd1;
+  color: var(--primary-dark);
 }
 
 /* Enhanced animated nature icon for level headings */
@@ -619,8 +621,9 @@ table {
   margin-top: 1.5rem;
   position: relative;
   z-index: 1;
-  background-color: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: 0 5px 15px var(--shadow-light);
   border-radius: 15px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -628,14 +631,14 @@ table {
 
 /* Table hover effect */
 table:hover {
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 30px var(--shadow-medium);
   transform: translateY(-5px);
 }
 
 /* Enhanced table header styling */
 thead {
-  background-color: #6BCB77;
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--text-on-primary);
   position: relative;
   overflow: hidden;
 }
@@ -675,15 +678,16 @@ th {
 
 /* Interactive table header */
 th:hover {
-  background-color: #5bb96a;
+  background-color: var(--secondary-dark);
 }
 
 /* Table data styling with enhanced interactive effects */
 td {
   padding: 1rem;
-  border-bottom: 1px solid #EEE;
+  border-bottom: 1px solid var(--border-light);
   transition: all 0.3s ease;
   position: relative;
+  color: var(--text-primary);
 }
 
 /* Enhanced row styling with animations */
@@ -691,11 +695,11 @@ tbody tr {
   transition: all 0.3s ease;
   background-position: 0 0;
   background-size: 200% 100%;
-  background-image: linear-gradient(to right, white 50%, #F5FFF7 50%);
+  background-image: linear-gradient(to right, var(--bg-card) 50%, var(--bg-secondary) 50%);
 }
 
 tbody tr:nth-child(even) {
-  background-image: linear-gradient(to right, #F5FFF7 50%, #E0FFE7 50%);
+  background-image: linear-gradient(to right, var(--bg-secondary) 50%, var(--bg-tertiary) 50%);
 }
 
 /* Enhanced hover effect for table rows */
@@ -705,7 +709,7 @@ tbody tr:hover {
 
 /* Cell highlight effect */
 td:hover {
-  color: #6BCB77;
+  color: var(--secondary-color);
   font-weight: bold;
 }
 
@@ -713,8 +717,10 @@ td:hover {
 .exam-schedules {
   position: relative;
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-left: 8px solid #9370DB;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border-left: 8px solid var(--accent-color);
+  border: 1px solid var(--border-light);
 }
 
 /* Enhanced animated clouds for exam section */
@@ -775,10 +781,12 @@ td:hover {
 .exam-period {
   flex: 1;
   min-width: 250px;
-  background: white;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
   border-radius: 20px;
   padding: 1.5rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 8px 20px var(--shadow-light);
   position: relative;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -1044,15 +1052,202 @@ td:hover {
   animation-delay: 0.8s;
 }
 
-/* Enhanced responsive design with more interactive elements */
-@media screen and (max-width: 768px) {
+/* Enhanced responsive design with comprehensive device support */
+
+/* Large Desktop (1400px+) */
+@media screen and (min-width: 1400px) {
   .academics-container {
-    padding: 1.5rem;
-    margin: 1.5rem;
+    max-width: 1300px;
+    padding: 4rem;
+    margin: 4rem auto;
   }
   
   .academics-container h1 {
+    font-size: 5rem;
+  }
+  
+  .academics-container h1::before,
+  .academics-container h1::after {
+    width: 100px;
+    height: 100px;
+  }
+  
+  section h2 {
+    font-size: 2.8rem;
+  }
+  
+  .level, .exam-period {
+    min-width: 300px;
+    padding: 2.5rem;
+  }
+  
+  table {
+    font-size: 1.1rem;
+  }
+  
+  th, td {
+    padding: 16px 20px;
+  }
+}
+
+/* Desktop (1200px - 1399px) */
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  .academics-container {
+    padding: 3.5rem;
+    margin: 3.5rem auto;
+  }
+  
+  .academics-container h1 {
+    font-size: 4.5rem;
+  }
+  
+  section h2 {
     font-size: 2.5rem;
+  }
+  
+  .level, .exam-period {
+    min-width: 280px;
+    padding: 2.2rem;
+  }
+}
+
+/* Small Desktop/Large Tablet (992px - 1199px) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .academics-container {
+    padding: 3rem;
+    margin: 3rem auto;
+  }
+  
+  .academics-container h1 {
+    font-size: 4rem;
+  }
+  
+  .academics-container h1::before,
+  .academics-container h1::after {
+    width: 80px;
+    height: 80px;
+  }
+  
+  section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .curriculum-levels {
+    gap: 1.8rem;
+  }
+  
+  .level {
+    min-width: 260px;
+    padding: 2rem;
+  }
+  
+  .exam-cycle {
+    gap: 1.8rem;
+  }
+  
+  .exam-period {
+    min-width: 240px;
+    padding: 1.8rem;
+  }
+  
+  table {
+    font-size: 1rem;
+  }
+  
+  th, td {
+    padding: 12px 16px;
+  }
+}
+
+/* Tablet (768px - 991px) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .academics-container {
+    padding: 2.5rem;
+    margin: 2.5rem 1rem;
+  }
+  
+  .academics-container h1 {
+    font-size: 3.5rem;
+  }
+  
+  .academics-container h1::before,
+  .academics-container h1::after {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .academics-container h1::before {
+    left: 15px;
+    top: -25px;
+  }
+  
+  .academics-container h1::after {
+    right: 15px;
+    top: -25px;
+  }
+  
+  section {
+    margin-bottom: 2.5rem;
+    padding: 1.8rem;
+  }
+  
+  section h2 {
+    font-size: 2rem;
+  }
+  
+  .curriculum-levels {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .level {
+    min-width: 100%;
+    padding: 1.6rem;
+  }
+  
+  .exam-cycle {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .exam-period {
+    min-width: 100%;
+    padding: 1.6rem;
+  }
+  
+  table {
+    font-size: 0.95rem;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  th, td {
+    padding: 10px 12px;
+  }
+  
+  .calendar-button {
+    width: 100%;
+    padding: 12px 20px;
+  }
+  
+  .curriculum::before,
+  .class-schedules::before,
+  .exam-schedules::before {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Large Mobile (576px - 767px) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .academics-container {
+    padding: 2rem;
+    margin: 2rem 0.5rem;
+  }
+  
+  .academics-container h1 {
+    font-size: 3rem;
   }
   
   .academics-container h1::before,
@@ -1063,52 +1258,240 @@ td:hover {
   
   .academics-container h1::before {
     left: 10px;
-    top: -30px;
+    top: -20px;
   }
   
   .academics-container h1::after {
     right: 10px;
-    top: -30px;
+    top: -20px;
+  }
+  
+  section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 15px;
   }
   
   section h2 {
     font-size: 1.8rem;
+    margin-bottom: 1rem;
   }
   
-  .level, .exam-period {
+  section p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .curriculum-levels,
+  .exam-cycle {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .level,
+  .exam-period {
     min-width: 100%;
+    padding: 1.4rem;
+  }
+  
+  .level h3,
+  .exam-period h3 {
+    font-size: 1.4rem;
+  }
+  
+  .level ul li,
+  .exam-period p {
+    font-size: 0.95rem;
+  }
+  
+  table {
+    font-size: 0.9rem;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  th, td {
+    padding: 8px 10px;
+  }
+  
+  .calendar-button {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+  }
+}
+
+/* Small Mobile (max-width: 575px) */
+@media screen and (max-width: 575px) {
+  .academics-container {
+    padding: 1.5rem;
+    margin: 1.5rem 0.25rem;
+    border-radius: 20px;
+  }
+  
+  .academics-container h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .academics-container h1::before,
+  .academics-container h1::after {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .academics-container h1::before {
+    left: 5px;
+    top: -15px;
+  }
+  
+  .academics-container h1::after {
+    right: 5px;
+    top: -15px;
+  }
+  
+  section {
+    margin-bottom: 1.5rem;
+    padding: 1.2rem;
+    border-radius: 12px;
+  }
+  
+  section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+  }
+  
+  section p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-align: justify;
+  }
+  
+  .curriculum-levels,
+  .exam-cycle {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .level,
+  .exam-period {
+    min-width: 100%;
+    padding: 1.2rem;
+    border-radius: 12px;
+  }
+  
+  .level h3,
+  .exam-period h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+    text-align: center;
+  }
+  
+  .level ul {
+    padding-left: 1rem;
+  }
+  
+  .level ul li {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .exam-period p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  table {
+    font-size: 0.8rem;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-radius: 8px;
+  }
+  
+  th, td {
+    padding: 6px 8px;
+  }
+  
+  th {
+    font-size: 0.75rem;
+    background-color: #f8f9fa;
+  }
+  
+  .calendar-button {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 1rem;
+    border-radius: 20px;
   }
   
   .curriculum::before,
   .class-schedules::before,
   .exam-schedules::before {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Extra Small Mobile (max-width: 360px) */
+@media screen and (max-width: 360px) {
+  .academics-container {
+    padding: 1rem;
+    margin: 1rem 0.1rem;
   }
   
-  table {
-    display: block;
-    overflow-x: auto;
+  .academics-container h1 {
+    font-size: 2.2rem;
+  }
+  
+  .academics-container h1::before,
+  .academics-container h1::after {
+    width: 40px;
+    height: 40px;
+  }
+  
+  section {
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  section h2 {
+    font-size: 1.4rem;
+  }
+  
+  section p {
     font-size: 0.9rem;
   }
   
-  .calendar-button {
-    width: 100%;
-  }
-
-  /* Enhanced mobile animations that are less CPU intensive */
-  .curriculum:hover::before,
-  .class-schedules:hover::after,
-  .exam-schedules:hover::after {
-    animation: none;
-    transform: none;
+  .level,
+  .exam-period {
+    padding: 1rem;
   }
   
-  /* Simplified hover effects for mobile */
-  .level:hover,
-  .exam-period:hover,
-  section:hover {
-    transform: translateY(-5px);
+  .level h3,
+  .exam-period h3 {
+    font-size: 1.2rem;
+  }
+  
+  .level ul li,
+  .exam-period p {
+    font-size: 0.85rem;
+  }
+  
+  table {
+    font-size: 0.75rem;
+  }
+  
+  th, td {
+    padding: 4px 6px;
+  }
+  
+  .calendar-button {
+    padding: 12px 14px;
+    font-size: 0.9rem;
   }
 }
 

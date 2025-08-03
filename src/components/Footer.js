@@ -1,32 +1,25 @@
 import React from 'react';
-import '../styles/Footer.css'; // You'll need to create this CSS file
+import { Link } from 'react-router-dom';
+import '../styles/Footer.css';
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-container">
+      <div className="footer-content">
         <div className="footer-section">
-          <h3>Sri Sai Blossoms</h3>
+          <h4>Sri Sai Blossoms</h4>
           <p>Nurturing minds, Building futures</p>
         </div>
         <div className="footer-section">
-          <h3>Contact Information</h3>
-          <p>Address: Your School Address</p>
-          <p>Phone: +91 1234567890</p>
-          <p>Email: info@srisaiblossoms.edu</p>
-        </div>
-        <div className="footer-section">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/admissions">Admissions</a></li>
-            <li><a href="/facilities">Facilities</a></li>
-            <li><a href="/contact">Contact Us</a></li>
-          </ul>
+          <h4>Contact</h4>
+          <p>📍 Allanahalli Layout, Mysuru</p>
+          <p>📞 +91 97403 72589</p>
+          <p>✉️ srisaiblossoms@gmail.com</p>
         </div>
       </div>
-      <div className="copyright">
+      <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} Sri Sai Blossoms. All Rights Reserved.</p>
+        <Link to="/admin" className="admin-access" title="Admin Access">⚙️</Link>
       </div>
     </footer>
   );

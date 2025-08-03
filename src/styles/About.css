@@ -5,7 +5,7 @@
 
 /* Page background with cartoon pattern */
 body {
-  background-color: #E8F9FD;
+  background-color: var(--bg-primary);
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><circle cx="25" cy="25" r="10" fill="%23FFD166" opacity="0.3"/><rect x="120" y="15" width="15" height="20" rx="5" fill="%23FF6B6B" opacity="0.3"/><polygon points="170,10 180,30 160,30" fill="%236BCB77" opacity="0.3"/><circle cx="40" cy="85" r="8" fill="%239370DB" opacity="0.3"/><rect x="10" y="130" width="30" height="10" rx="5" fill="%234ECDC4" opacity="0.3"/><circle cx="90" cy="160" r="12" fill="%23FF6B6B" opacity="0.3"/><polygon points="140,140 160,150 140,160" fill="%23FFD166" opacity="0.3"/><rect x="170" y="80" width="20" height="20" rx="5" fill="%239370DB" opacity="0.3"/><circle cx="150" cy="40" r="15" fill="%234ECDC4" opacity="0.3"/><rect x="70" y="70" width="25" height="25" rx="5" fill="%236BCB77" opacity="0.3"/></svg>');
   background-attachment: fixed;
 }
@@ -15,7 +15,7 @@ body {
   max-width: 1200px;
   margin: 3rem auto;
   padding: 2rem;
-  background-color: #fff;
+  background-color: var(--bg-card);
   border-radius: 25px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -95,20 +95,23 @@ section {
   margin-bottom: 3rem;
   position: relative;
   padding: 1.5rem;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
   border-radius: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 section:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 25px var(--shadow-medium);
 }
 
 /* History section with notebook paper background */
 .history {
-  background: linear-gradient(#fff 97%, #DDD 100%), repeating-linear-gradient(#F9F9F9, #F9F9F9 29px, #DDD 30px);
+  background: linear-gradient(var(--bg-card) 97%, var(--border-light) 100%), repeating-linear-gradient(var(--bg-secondary), var(--bg-secondary) 29px, var(--border-light) 30px);
   background-size: 100% 30px;
-  border-left: 4px solid #FF6B6B;
+  border-left: 4px solid var(--accent-color);
   padding-left: 2rem;
   position: relative;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="500" height="400" viewBox="0 0 500 400"><rect width="500" height="400" fill="%23FFFFFF" opacity="0.7"/><line x1="40" y1="0" x2="40" y2="400" stroke="%23FF9999" stroke-width="1" opacity="0.5"/><g transform="translate(420, 50)" opacity="0.2"><circle cx="0" cy="0" r="20" fill="%23FFD166"/><circle cx="0" cy="0" r="15" fill="%23FFE0A3"/><circle cx="-6" cy="-5" r="2" fill="%23333"/><circle cx="6" cy="-5" r="2" fill="%23333"/><path d="M-5,5 Q0,10 5,5" stroke="%23333" stroke-width="1.5" fill="none"/></g><g transform="translate(440, 150)" opacity="0.2"><path d="M0,0 L-20,-10 L-25,10 Z" fill="%234ECDC4"/><path d="M-1,0 L15,-15 L20,5 Z" fill="%239370DB"/><circle cx="-5" cy="-3" r="4" fill="%23FF6B6B"/></g><g transform="translate(430, 250)" opacity="0.2"><path d="M0,0 Q10,15 20,0 Q30,-15 40,0" stroke="%236BCB77" stroke-width="3" fill="none"/><path d="M0,10 Q10,25 20,10 Q30,-5 40,10" stroke="%236BCB77" stroke-width="2" fill="none"/><path d="M0,20 Q10,35 20,20 Q30,5 40,20" stroke="%236BCB77" stroke-width="1" fill="none"/></g><text x="460" y="350" font-family="Comic Sans MS, cursive" font-size="16" fill="%23FF6B6B" opacity="0.3" transform="rotate(-15, 460, 350)">History</text><path d="M30,30 C50,20 70,40 90,30" stroke="%23FFD166" stroke-width="2" fill="none" opacity="0.2"/><path d="M30,130 C50,120 70,140 90,130" stroke="%239370DB" stroke-width="2" fill="none" opacity="0.2"/><path d="M30,230 C50,220 70,240 90,230" stroke="%234ECDC4" stroke-width="2" fill="none" opacity="0.2"/><path d="M30,330 C50,320 70,340 90,330" stroke="%236BCB77" stroke-width="2" fill="none" opacity="0.2"/></svg>');
@@ -136,7 +139,7 @@ section:hover {
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: space-between;
-  background-color: #E8F9FD;
+  background-color: var(--bg-secondary);
   border-radius: 25px;
   padding: 2rem;
   position: relative;
@@ -178,9 +181,10 @@ section:hover {
   flex: 1;
   min-width: 300px;
   padding: 1.5rem;
-  background-color: white;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
   border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 15px var(--shadow-light);
   position: relative;
   overflow: hidden;
 }
@@ -211,7 +215,7 @@ section:hover {
 
 /* Heading styles for sections */
 section h2 {
-  color: #9370DB;
+  color: var(--primary-color);
   font-family: 'Fredoka One', cursive;
   margin-bottom: 1rem;
   font-size: 2rem;
@@ -233,8 +237,8 @@ section h2::after {
 
 /* Faculty section with chalkboard styling */
 .faculty {
-  background-color: #34495e;
-  color: white;
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
   border-radius: 20px;
   padding: 2rem;
   position: relative;
@@ -245,11 +249,11 @@ section h2::after {
 }
 
 .faculty h2 {
-  color: #FFD166;
+  color: var(--primary-color);
 }
 
 .faculty p {
-  color: #ecf0f1;
+  color: var(--text-secondary);
 }
 
 /* Add chalk dust effect */
@@ -370,44 +374,496 @@ section h2::after {
   opacity: 0.7;
 }
 
-/* Media Queries for Responsive Design */
-@media screen and (max-width: 768px) {
+/* Enhanced Responsive Design for About Page */
+
+/* Large Desktop (1400px+) */
+@media screen and (min-width: 1400px) {
+  .about-container {
+    max-width: 1300px;
+    padding: 4rem;
+    margin: 4rem auto;
+  }
+  
   .about-container h1 {
+    font-size: 4.5rem;
+  }
+  
+  .about-container h1::after {
+    width: 120px;
+    height: 120px;
+    top: -40px;
+  }
+  
+  section h2 {
     font-size: 2.5rem;
+  }
+  
+  section p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+  
+  .stat-box h3 {
+    font-size: 3rem;
+  }
+  
+  .stat-box p {
+    font-size: 1.1rem;
+  }
+  
+  .faculty-stats {
+    gap: 3rem;
+  }
+  
+  .stat-box {
+    min-width: 200px;
+    padding: 2.5rem;
+  }
+}
+
+/* Desktop (1200px - 1399px) */
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  .about-container {
+    padding: 3.5rem;
+    margin: 3.5rem auto;
+  }
+  
+  .about-container h1 {
+    font-size: 4rem;
+  }
+  
+  .about-container h1::after {
+    width: 100px;
+    height: 100px;
+    top: -35px;
+  }
+  
+  section h2 {
+    font-size: 2.3rem;
+  }
+  
+  section p {
+    font-size: 1.15rem;
+  }
+  
+  .stat-box h3 {
+    font-size: 2.8rem;
+  }
+  
+  .faculty-stats {
+    gap: 2.5rem;
+  }
+}
+
+/* Small Desktop/Large Tablet (992px - 1199px) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .about-container {
+    padding: 3rem;
+    margin: 3rem auto;
+  }
+  
+  .about-container h1 {
+    font-size: 3.5rem;
+  }
+  
+  .about-container h1::after {
+    width: 90px;
+    height: 90px;
+    top: -30px;
+  }
+  
+  section h2 {
+    font-size: 2.1rem;
+  }
+  
+  section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .vision-mission {
+    gap: 2rem;
+  }
+  
+  .faculty-stats {
+    gap: 2rem;
+  }
+  
+  .stat-box {
+    min-width: 160px;
+    padding: 1.8rem;
+  }
+  
+  .stat-box h3 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Tablet (768px - 991px) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .about-container {
+    padding: 2.5rem;
+    margin: 2.5rem 1rem;
+  }
+  
+  .about-container h1 {
+    font-size: 3rem;
+  }
+  
+  .about-container h1::after {
+    width: 80px;
+    height: 80px;
+    top: -25px;
+  }
+  
+  section {
+    margin-bottom: 2.5rem;
+    padding: 1.3rem;
+  }
+  
+  section h2 {
+    font-size: 1.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  section p {
+    font-size: 1.05rem;
+    line-height: 1.5;
   }
   
   .vision-mission {
     flex-direction: column;
-  }
-  
-  .faculty-stats {
-    flex-direction: column;
-  }
-  
-  .stat-box {
-    min-width: 100%;
+    gap: 1.5rem;
   }
   
   .vision, .mission {
     min-width: 100%;
   }
   
+  .faculty-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  .stat-box {
+    min-width: calc(50% - 0.75rem);
+    max-width: calc(50% - 0.75rem);
+    padding: 1.5rem;
+  }
+  
+  .stat-box h3 {
+    font-size: 2.2rem;
+  }
+  
+  .stat-box p {
+    font-size: 0.95rem;
+  }
+  
+  .history::before,
+  .faculty::after {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* Large Mobile (576px - 767px) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .about-container {
+    padding: 2rem;
+    margin: 2rem 0.5rem;
+  }
+  
+  .about-container h1 {
+    font-size: 2.5rem;
+  }
+  
+  .about-container h1::after {
+    width: 70px;
+    height: 70px;
+    top: -20px;
+  }
+  
+  section {
+    margin-bottom: 2rem;
+    padding: 1.2rem;
+    border-radius: 15px;
+  }
+  
   section h2 {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  section p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .vision-mission {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.5rem;
+  }
+  
+  .vision, .mission {
+    min-width: 100%;
+  }
+  
+  .faculty-stats {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .stat-box {
+    min-width: 100%;
+    max-width: 300px;
+    padding: 1.3rem;
+    text-align: center;
+  }
+  
+  .stat-box h3 {
+    font-size: 2rem;
+  }
+  
+  .stat-box p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Mobile (max-width: 575px) */
+@media screen and (max-width: 575px) {
+  .about-container {
+    padding: 1.5rem;
+    margin: 1.5rem 0.25rem;
+    border-radius: 20px;
+  }
+  
+  .about-container h1 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
   }
   
   .about-container h1::after {
     width: 60px;
     height: 60px;
-    top: -20px;
+    top: -15px;
+    right: 10px;
+  }
+  
+  section {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  
+  section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.7rem;
+    text-align: center;
+  }
+  
+  section p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-align: justify;
+  }
+  
+  .vision-mission {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.2rem;
+  }
+  
+  .vision, .mission {
+    min-width: 100%;
+    text-align: center;
+  }
+  
+  .vision h2, .mission h2 {
+    font-size: 1.4rem;
+    color: #FF9E1B;
+  }
+  
+  .faculty-stats {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+  }
+  
+  .stat-box {
+    min-width: 100%;
+    max-width: 250px;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 12px;
+  }
+  
+  .stat-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .stat-box p {
+    font-size: 0.85rem;
+    margin: 0;
   }
   
   .history::before,
   .faculty::after {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .history::before {
+    top: -20px;
+    left: -10px;
+  }
+  
+  .faculty::after {
+    bottom: -20px;
+    right: -10px;
   }
 }
+
+/* Extra Small Mobile (max-width: 360px) */
+@media screen and (max-width: 360px) {
+  .about-container {
+    padding: 1rem;
+    margin: 1rem 0.1rem;
+  }
+  
+  .about-container h1 {
+    font-size: 2rem;
+  }
+  
+  .about-container h1::after {
+    width: 50px;
+    height: 50px;
+    top: -10px;
+  }
+  
+  section {
+    padding: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  section h2 {
+    font-size: 1.3rem;
+  }
+  
+  section p {
+    font-size: 0.9rem;
+  }
+  
+  .vision-mission {
+    padding: 1rem;
+  }
+  
+  .stat-box {
+    max-width: 200px;
+    padding: 0.8rem;
+  }
+  
+  .stat-box h3 {
+    font-size: 1.6rem;
+  }
+  
+  .stat-box p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Landscape orientation for mobile */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  .about-container {
+    margin: 1rem 0.5rem;
+  }
+  
+  .about-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  section {
+    margin-bottom: 1.2rem;
+    padding: 0.8rem;
+  }
+  
+  section h2 {
+    font-size: 1.4rem;
+  }
+  
+  .faculty-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .stat-box {
+    min-width: calc(50% - 0.5rem);
+    max-width: calc(50% - 0.5rem);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  section:hover {
+    transform: none;
+  }
+  
+  section:active {
+    transform: scale(0.98);
+  }
+  
+  .stat-box:hover {
+    transform: none;
+  }
+  
+  .stat-box:active {
+    transform: scale(0.98);
+  }
+  
+  /* Remove complex hover animations on touch devices */
+  section:hover h2,
+  .vision-mission::before,
+  .history::before,
+  .faculty::after {
+    animation: none;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .about-container h1,
+  section h2 {
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  section,
+  .stat-box,
+  .vision-mission::before,
+  .history::before,
+  .faculty::after {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Focus styles for accessibility */
+section:focus,
+.stat-box:focus {
+  outline: 2px solid #FF9E1B;
+  outline-offset: 2px;
+}
+
+/* Remove the incorrect dark mode media query - we use [data-theme="dark"] instead */
 
 /* Animation for section hover */
 @keyframes gentle-bounce {

@@ -12,9 +12,25 @@
 
 .home-container {
   font-family: 'Baloo 2', 'Comic Neue', 'Comic Sans MS', sans-serif;
-  color: #333;
+  color: var(--text-primary);
   overflow-x: hidden;
-  background-color: #fffcf9;
+  background-color: var(--bg-primary);
+  /* Account for fixed navbar on mobile */
+  padding-top: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Mobile body offset for fixed navbar */
+@media (max-width: 767px) {
+  .home-container {
+    padding-top: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    padding-top: 60px;
+  }
 }
 
 .container {
@@ -23,14 +39,14 @@
   padding: 0 20px;
 }
 
-/* Hero section styling - KEPT AS ORIGINAL */
+/* Hero section styling - Enhanced for themes */
 .hero-section {
   height: 70vh;
   display: flex;
   align-items: center;
   background-size: cover;
   background-position: center;
-  color: white;
+  color: var(--text-inverse);
   position: relative;
 }
 
@@ -63,6 +79,11 @@
   z-index: 1;
 }
 
+[data-theme="dark"] .video-overlay {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), 
+              radial-gradient(circle at center, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
@@ -70,16 +91,17 @@
   text-align: center;
   max-width: 900px;
   padding: 0 20px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--bg-glass);
   backdrop-filter: blur(5px);
   border-radius: 20px;
   padding: 30px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px var(--shadow-light);
+  border: 1px solid var(--border-light);
 }
 
 .hero-text {
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  color: var(--text-inverse);
+  text-shadow: 2px 2px 4px var(--shadow-dark);
 }
 
 .hero-text h1 {
@@ -164,7 +186,8 @@
 /* About section with enhanced styling */
 .about-section {
   padding: 80px 0;
-  background-color: #FFFDFA;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
   position: relative;
   overflow: hidden;
   font-family: 'Baloo 2', 'Comic Neue', cursive;
@@ -213,9 +236,11 @@
   padding: 25px;
   min-width: 300px;
   margin-bottom: 30px;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 10px 30px var(--shadow-light);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -225,7 +250,7 @@
 
 .col:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 35px var(--shadow-medium);
 }
 
 /* Decorative corner ribbons */
@@ -303,7 +328,7 @@
 
 .col p {
   line-height: 1.8;
-  color: #555;
+  color: var(--text-secondary);
   font-size: 1.1rem;
   text-align: center;
   margin-bottom: 1.5rem;
@@ -353,7 +378,7 @@
 /* List item hover effect */
 .program-list li:hover, .features-list li:hover {
   transform: translateX(10px);
-  color: #333;
+  color: var(--text-primary);
 }
 
 .program-list li:hover:before, .features-list li:hover:before {
@@ -370,12 +395,18 @@
 /* Contact section styling */
 .contact-section {
   padding: 80px 0 100px;
-  background: linear-gradient(135deg, #8ED1FC, #7BDCB5);
-  color: white;
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  color: var(--text-inverse);
   text-align: center;
   position: relative;
   overflow: hidden;
   font-family: 'Baloo 2', 'Comic Neue', sans-serif;
+}
+
+/* Dark theme gradient adjustment */
+[data-theme="dark"] .contact-section {
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+  color: var(--text-primary);
 }
 
 /* Grass and flowers at the bottom of contact section */
@@ -409,11 +440,17 @@
 .contact-section h3 {
   font-size: 3rem;
   margin-bottom: 40px;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  color: var(--text-inverse);
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
   font-family: 'Bubblegum Sans', cursive;
   position: relative;
   z-index: 1;
+}
+
+/* Dark theme heading adjustments */
+[data-theme="dark"] .contact-section h3 {
+  color: var(--text-primary);
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
 }
 
 .contact-info {
@@ -425,28 +462,45 @@
   z-index: 1;
 }
 
-/* Improved contact items */
+/* Improved contact items - Enhanced for both light and dark modes */
 .contact-item {
   display: flex;
   align-items: center;
-  font-size: 1.1rem;
-  background-color: rgba(255, 255, 255, 0.3);
-  padding: 15px 25px;
-  border-radius: 50px;
+  justify-content: flex-start;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--text-inverse);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 12px 20px;
+  border-radius: 25px;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
+  min-width: 200px;
+  max-width: 280px;
+  flex: 1;
+  backdrop-filter: blur(10px);
 }
 
-/* Add icons with SVG for each contact item */
+/* Dark theme contact item adjustments */
+[data-theme="dark"] .contact-item {
+  background-color: var(--bg-overlay);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+  box-shadow: 0 5px 15px var(--shadow-medium);
+}
+
+/* Add icons with SVG for each contact item - Enhanced positioning */
 .icon {
   display: block;
-  width: 30px;
-  height: 30px;
-  margin-right: 15px;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
   background-size: contain;
   background-repeat: no-repeat;
+  flex-shrink: 0;
+  min-width: 24px;
 }
 
 .phone-icon {
@@ -486,24 +540,194 @@
 
 .contact-item:hover {
   transform: translateY(-5px);
-  background-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Dark theme hover adjustments */
+[data-theme="dark"] .contact-item:hover {
+  background-color: var(--bg-card);
+  box-shadow: 0 10px 25px var(--shadow-dark);
 }
 
 .contact-item:hover::after {
   left: 100%;
 }
 
-/* Contact item text - FIX to ensure it's always visible */
+/* Contact item text - Enhanced for both light and dark modes */
 .contact-item p {
   margin: 0;
   font-weight: 500;
-  color: white;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-  opacity: 1 !important; /* Force opacity to ensure visibility */
-  transition: none !important; /* Prevent unwanted transitions */
+  color: var(--text-inverse);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  opacity: 1 !important;
+  transition: color 0.3s ease !important;
   position: relative;
   z-index: 2;
+  font-size: 0.9rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Dark theme specific text adjustments */
+[data-theme="dark"] .contact-item p {
+  color: var(--text-primary);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+/* Hours display styling - Enhanced for better visibility */
+.hours-display {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 25px;
+  min-width: 300px;
+  max-width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* Dark theme adjustments for hours display */
+[data-theme="dark"] .hours-display {
+  background-color: var(--bg-overlay);
+  border: 1px solid var(--border-medium);
+}
+
+.hours-display .icon {
+  margin-bottom: 10px;
+  margin-right: 0;
+}
+
+.school-hours {
+  width: 100%;
+}
+
+.school-hours p {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-inverse);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+/* Dark theme text adjustments */
+[data-theme="dark"] .school-hours p {
+  color: var(--text-primary);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.current-status {
+  margin-bottom: 15px;
+}
+
+.status-indicator {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-indicator.open {
+  background-color: rgba(34, 197, 94, 0.9);
+  color: var(--text-inverse);
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
+}
+
+.status-indicator.closed {
+  background-color: rgba(239, 68, 68, 0.9);
+  color: var(--text-inverse);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+/* Dark theme status indicators */
+[data-theme="dark"] .status-indicator.open {
+  background-color: var(--status-success);
+  color: var(--text-inverse);
+  box-shadow: 0 2px 8px rgba(104, 211, 145, 0.4);
+}
+
+[data-theme="dark"] .status-indicator.closed {
+  background-color: var(--status-error);
+  color: var(--text-inverse);
+  box-shadow: 0 2px 8px rgba(252, 129, 129, 0.4);
+}
+
+.weekly-schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.day-schedule {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.day-schedule:last-child {
+  border-bottom: none;
+}
+
+.day-schedule.current-day {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.day-schedule.current-day .day {
+  font-weight: 700;
+  color: #FFD700;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+}
+
+.day-schedule.current-day .hours {
+  font-weight: 600;
+  color: var(--text-inverse);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+/* Dark theme adjustments for current day */
+[data-theme="dark"] .day-schedule.current-day .day {
+  color: #FFEB3B;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
+}
+
+[data-theme="dark"] .day-schedule.current-day .hours {
+  color: var(--text-primary);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.day-schedule .day {
+  font-weight: 600;
+  min-width: 80px;
+  color: var(--text-inverse);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.day-schedule .hours {
+  font-weight: 500;
+  color: var(--text-inverse);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+/* Dark theme adjustments for day schedule */
+[data-theme="dark"] .day-schedule .day {
+  color: var(--text-primary);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+[data-theme="dark"] .day-schedule .hours {
+  color: var(--text-secondary);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
 /* Animation styling */
@@ -518,54 +742,692 @@
   transform: translateY(0);
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
+/* Enhanced Responsive design for all screen sizes */
+
+/* Large Desktop (1400px+) */
+@media (min-width: 1400px) {
   .hero-text h1 {
-    font-size: 2.5rem;
+    font-size: 5rem;
   }
   
   .hero-text h2 {
-    font-size: 1.5rem;
+    font-size: 3rem;
   }
   
   .tagline {
+    font-size: 2.5rem;
+  }
+  
+  .sub-tagline {
+    font-size: 1.8rem;
+  }
+  
+  .col h3 {
+    font-size: 2.5rem;
+  }
+  
+  .contact-section h3 {
+    font-size: 3.5rem;
+  }
+  
+  .contact-item {
+    min-width: 350px;
+    padding: 20px 25px;
+  }
+  
+  .hours-display {
+    min-width: 350px;
+    padding: 25px 30px;
+  }
+}
+
+/* Desktop (1200px - 1399px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .hero-text h1 {
+    font-size: 4.5rem;
+  }
+  
+  .hero-text h2 {
+    font-size: 2.7rem;
+  }
+  
+  .tagline {
+    font-size: 2.2rem;
+  }
+  
+  .col h3 {
+    font-size: 2.3rem;
+  }
+  
+  .contact-section h3 {
+    font-size: 3.2rem;
+  }
+}
+
+/* Small Desktop/Large Tablet (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hero-text h1 {
+    font-size: 4rem;
+  }
+  
+  .hero-text h2 {
+    font-size: 2.5rem;
+  }
+  
+  .tagline {
+    font-size: 2rem;
+  }
+  
+  .sub-tagline {
+    font-size: 1.5rem;
+  }
+  
+  .col {
+    min-width: 280px;
+    padding: 20px;
+  }
+  
+  .col h3 {
+    font-size: 2.1rem;
+  }
+  
+  .contact-section h3 {
+    font-size: 3rem;
+  }
+  
+  .contact-item {
+    min-width: 280px;
+    padding: 15px 20px;
+  }
+  
+  .hours-display {
+    min-width: 280px;
+  }
+}
+
+/* Tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .hero-section {
+    height: 60vh;
+  }
+  
+  .hero-text h1 {
+    font-size: 3.5rem;
+  }
+  
+  .hero-text h2 {
+    font-size: 2.2rem;
+  }
+  
+  .tagline {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+  
+  .sub-tagline {
+    font-size: 1.3rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: row;
+    gap: 15px;
+  }
+  
+  .btn {
+    padding: 14px 24px;
+    font-size: 1.1rem;
+  }
+  
+  .row {
+    flex-direction: column;
+  }
+  
+  .col {
+    min-width: 100%;
+    max-width: 100%;
+    margin-bottom: 25px;
+    padding: 20px;
+  }
+  
+  .col h3 {
+    font-size: 1.9rem;
+  }
+  
+  .contact-section h3 {
+    font-size: 2.5rem;
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .contact-item {
+    width: 100%;
+    max-width: 400px;
+    min-width: auto;
+    padding: 15px 20px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  .contact-item p {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: initial;
+    word-break: break-word;
+  }
+  
+  .hours-display {
+    min-width: auto;
+    max-width: 400px;
+    width: 100%;
+  }
+}
+
+/* Large Mobile (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .hero-section {
+    height: 50vh;
+  }
+  
+  .hero-content {
+    padding: 20px;
+  }
+  
+  .hero-text h1 {
+    font-size: 3rem;
+    letter-spacing: 1px;
+  }
+  
+  .hero-text h2 {
+    font-size: 1.8rem;
+  }
+  
+  .tagline {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+  
+  .sub-tagline {
     font-size: 1.2rem;
+    margin-bottom: 1.5rem;
   }
   
   .cta-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 12px;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 16px 20px;
+    font-size: 1.1rem;
+  }
+  
+  .about-section {
+    padding: 60px 0;
+  }
+  
+  .col {
+    min-width: 100%;
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .col h3 {
+    font-size: 1.8rem;
+  }
+  
+  .col p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .program-list li, .features-list li {
+    font-size: 0.95rem;
+    margin-bottom: 0.7rem;
+  }
+  
+  .contact-section h3 {
+    font-size: 2.2rem;
+    color: var(--text-inverse);
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
+  }
+  
+  /* Dark theme heading adjustments for mobile */
+  [data-theme="dark"] .contact-section h3 {
+    color: var(--text-primary);
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
   }
   
   .contact-info {
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
+    align-items: center;
   }
   
   .contact-item {
     width: 100%;
-    padding: 12px 20px;
+    max-width: 350px;
+    padding: 12px 18px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  .contact-item .icon {
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+  
+  .contact-item p {
+    font-size: 0.95rem;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: initial;
+    word-break: break-word;
+    line-height: 1.4;
+    color: var(--text-inverse);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  }
+  
+  /* Dark theme mobile adjustments */
+  [data-theme="dark"] .contact-item p {
+    color: var(--text-primary);
+  }
+  
+  .hours-display {
+    width: 100%;
+    max-width: 350px;
+    padding: 18px 22px;
+  }
+  
+  .weekly-schedule {
+    font-size: 0.95rem;
+  }
+}
+
+/* Small Mobile (max-width: 575px) */
+@media (max-width: 575px) {
+  .hero-section {
+    height: 45vh;
+    min-height: 400px;
+  }
+  
+  .hero-content {
+    padding: 15px;
+    border-radius: 15px;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+  }
+  
+  .hero-text h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .tagline {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.4rem;
+  }
+  
+  .sub-tagline {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 250px;
+    padding: 14px 18px;
+    font-size: 1rem;
+    border-radius: 25px;
+  }
+  
+  .about-section {
+    padding: 50px 0;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .col {
+    min-width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+  }
+  
+  .col h3 {
+    font-size: 1.7rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .col p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+  
+  .program-list, .features-list {
+    padding-left: 0;
   }
   
   .program-list li, .features-list li {
     font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+    padding-left: 1.8rem;
+  }
+  
+  .program-list li:before, .features-list li:before {
+    width: 12px;
+    height: 12px;
+    left: 0;
+  }
+  
+  .contact-section {
+    padding: 40px 0;
+  }
+  
+  .contact-section h3 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    color: var(--text-inverse);
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
+  }
+  
+  /* Dark theme heading adjustments for small mobile */
+  [data-theme="dark"] .contact-section h3 {
+    color: var(--text-primary);
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+  
+  .contact-item {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 15px;
+    flex-direction: row;
+    text-align: left;
+    border-radius: 12px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    align-items: flex-start;
+  }
+  
+  .contact-item .icon {
+    margin-right: 8px;
+    margin-bottom: 0;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  
+  .contact-item p {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    margin: 0;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: initial;
+    word-break: break-word;
+    flex: 1;
+    color: var(--text-inverse);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  }
+  
+  /* Dark theme mobile adjustments */
+  [data-theme="dark"] .contact-item p {
+    color: var(--text-primary);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  }
+  
+  .hours-display {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .hours-display .icon {
+    margin-bottom: 8px;
+    margin-right: 0;
+    align-self: flex-start;
+  }
+  
+  .weekly-schedule {
+    font-size: 0.9rem;
+    width: 100%;
+  }
+  
+  .day-schedule {
+    padding: 6px 0;
+  }
+  
+  .day-schedule .day {
+    min-width: 60px;
+    font-size: 0.85rem;
+  }
+  
+  .day-schedule .hours {
+    font-size: 0.8rem;
+  }
+  
+  .status-indicator {
+    padding: 4px 10px;
+    font-size: 0.8rem;
   }
 }
 
-@media (max-width: 480px) {
+/* Extra Small Mobile (max-width: 360px) */
+@media (max-width: 360px) {
+  .hero-section {
+    height: 40vh;
+    min-height: 350px;
+  }
+  
   .hero-text h1 {
     font-size: 2rem;
   }
   
   .hero-text h2 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+  }
+  
+  .tagline {
+    font-size: 1rem;
+  }
+  
+  .sub-tagline {
+    font-size: 0.9rem;
+  }
+  
+  .btn {
+    max-width: 220px;
+    padding: 12px 16px;
+    font-size: 0.95rem;
   }
   
   .col h3 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
+  }
+  
+  .col p {
+    font-size: 0.9rem;
   }
   
   .contact-section h3 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
+    color: var(--text-inverse);
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
+  }
+  
+  /* Dark theme heading adjustments for extra small mobile */
+  [data-theme="dark"] .contact-section h3 {
+    color: var(--text-primary);
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
+  }
+  
+  .contact-item {
+    max-width: 280px;
+    padding: 8px 12px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  .contact-item p {
+    font-size: 0.8rem;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: initial;
+    word-break: break-word;
+    line-height: 1.3;
+    color: var(--text-inverse);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  }
+  
+  /* Dark theme extra small mobile adjustments */
+  [data-theme="dark"] .contact-item p {
+    color: var(--text-primary);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  }
+  
+  .hours-display {
+    max-width: 280px;
+    padding: 12px 15px;
+  }
+  
+  .day-schedule .day {
+    min-width: 50px;
+    font-size: 0.8rem;
+  }
+  
+  .day-schedule .hours {
+    font-size: 0.75rem;
   }
 }
+
+/* Landscape orientation for mobile */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  .hero-section {
+    height: 60vh;
+    min-height: 300px;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero-text h2 {
+    font-size: 1.4rem;
+  }
+  
+  .tagline {
+    font-size: 1.1rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .btn {
+    width: auto;
+    min-width: 120px;
+    max-width: 180px;
+  }
+  
+  .about-section {
+    padding: 40px 0;
+  }
+  
+  .contact-section {
+    padding: 35px 0;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .col:hover {
+    transform: none;
+  }
+  
+  .col:active {
+    transform: scale(0.98);
+  }
+  
+  .btn:hover {
+    transform: none;
+  }
+  
+  .btn:active {
+    transform: scale(0.98);
+  }
+  
+  .contact-item:hover {
+    transform: none;
+  }
+  
+  .contact-item:active {
+    transform: scale(0.98);
+  }
+  
+  /* Ensure proper touch targets */
+  .btn {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-text h1,
+  .hero-text h2 {
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .btn,
+  .col,
+  .contact-item {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Focus styles for accessibility */
+.btn:focus,
+.contact-item:focus {
+  outline: 2px solid #FF9E1B;
+  outline-offset: 2px;
+}
+
+/* Remove the incorrect dark mode media query - we use [data-theme="dark"] instead */
