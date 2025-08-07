@@ -120,9 +120,12 @@ function displayContacts() {
         <div class="contact-card ${contact.status}">
             <div class="contact-header">
                 <div class="contact-info">
-                    <h3>${escapeHtml(contact.name)}</h3>
-                    <p class="email">${escapeHtml(contact.email)}</p>
-                    ${contact.phone ? `<p class="phone">📞 ${escapeHtml(contact.phone)}</p>` : ''}
+                    <h3>${escapeHtml(contact.name)} (Parent/Guardian)</h3>
+                    <p class="child-name">👶 Child: <strong>${escapeHtml(contact.childName || 'N/A')}</strong></p>
+                    <p class="class-info">🎓 Class to Join: <strong>${escapeHtml(contact.classToJoin || 'N/A')}</strong></p>
+                    <p class="birth-date">📅 Date of Birth: <strong>${contact.dateOfBirth ? new Date(contact.dateOfBirth).toLocaleDateString('en-IN') : 'N/A'}</strong></p>
+                    ${contact.email ? `<p class="email">📧 ${escapeHtml(contact.email)}</p>` : ''}
+                    ${contact.phone ? `<p class="phone">📞 <a href="tel:${escapeHtml(contact.phone)}" class="phone-link">${escapeHtml(contact.phone)}</a></p>` : ''}
                 </div>
                 <div class="contact-meta">
                     <span class="status-badge ${contact.status}">
@@ -133,7 +136,6 @@ function displayContacts() {
             </div>
             
             <div class="contact-content">
-                <h4>Subject: ${escapeHtml(contact.subject)}</h4>
                 <div class="message">${escapeHtml(contact.message)}</div>
             </div>
             
@@ -147,13 +149,21 @@ function displayContacts() {
                     <option value="read" ${contact.status === 'read' ? 'selected' : ''}>Read</option>
                     <option value="replied" ${contact.status === 'replied' ? 'selected' : ''}>Replied</option>
                 </select>
-                <a 
-                    href="mailto:${escapeHtml(contact.email)}?subject=Re: ${escapeHtml(contact.subject)}"
+                ${contact.email ? `<a 
+                    href="mailto:${escapeHtml(contact.email)}?subject=Re: Contact from ${escapeHtml(contact.name)}"
                     class="reply-button"
                     target="_blank"
+                    title="Send Email Reply"
                 >
                     <i class="fas fa-reply"></i> Reply
-                </a>
+                </a>` : ''}
+                <button 
+                    onclick="deleteContact('${contact._id}', '${escapeHtml(contact.name)}')"
+                    class="delete-button"
+                    title="Delete this contact submission"
+                >
+                    <i class="fas fa-trash"></i> Delete
+                </button>
             </div>
         </div>
     `).join('');
@@ -184,6 +194,48 @@ async function updateContactStatus(contactId, newStatus) {
     } catch (err) {
         console.error('Error updating status:', err);
         showNotification('Error updating status. Please try again.', 'error');
+    }
+}
+
+// Delete contact
+async function deleteContact(contactId, contactName) {
+    if (!confirm(`Are you sure you want to delete the contact submission from ${contactName}? This action cannot be undone.`)) {
+        return;
+    }
+
+    try {
+        console.log('Attempting to delete contact:', contactId);
+        const response = await fetch(`${API_BASE_URL}/contacts/${contactId}`, {
+            method: 'DELETE',
+        });
+
+        console.log('Delete response status:', response.status);
+
+        if (!response.ok) {
+            // Handle different HTTP error statuses
+            if (response.status === 404) {
+                showNotification('Contact not found. It may have already been deleted.', 'error');
+                // Refresh to update the list
+                await loadContacts(currentPage, selectedStatus);
+                return;
+            } else if (response.status === 500) {
+                showNotification('Server error occurred while deleting contact.', 'error');
+                return;
+            }
+        }
+
+        const result = await response.json();
+
+        if (result.success) {
+            showNotification('Contact submission deleted successfully!', 'success');
+            // Refresh the current view
+            await loadContacts(currentPage, selectedStatus);
+        } else {
+            showNotification('Failed to delete contact: ' + result.message, 'error');
+        }
+    } catch (err) {
+        console.error('Error deleting contact:', err);
+        showNotification('Error deleting contact. Please check your connection and try again.', 'error');
     }
 }
 
@@ -315,6 +367,7 @@ function showNotification(message, type = 'info') {
 // Export functions for global use
 window.loadContacts = loadContacts;
 window.updateContactStatus = updateContactStatus;
+window.deleteContact = deleteContact;
 window.handleStatusChange = handleStatusChange;
 window.changePage = changePage;
 window.refreshContacts = refreshContacts;

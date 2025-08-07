@@ -65,6 +65,32 @@ const Admin = () => {
     }
   };
 
+  // Delete contact
+  const deleteContact = async (contactId, contactName) => {
+    if (!window.confirm(`Are you sure you want to delete the contact submission from ${contactName}? This action cannot be undone.`)) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`http://localhost:5000/api/contacts/${contactId}`, {
+        method: 'DELETE',
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert('Contact submission deleted successfully');
+        // Refresh the contacts list
+        fetchContacts(currentPage, selectedStatus);
+      } else {
+        alert('Failed to delete contact: ' + result.message);
+      }
+    } catch (err) {
+      console.error('Error deleting contact:', err);
+      alert('Error deleting contact');
+    }
+  };
+
   // Load contacts on component mount and when filters change
   useEffect(() => {
     fetchContacts(currentPage, selectedStatus);
@@ -146,9 +172,16 @@ const Admin = () => {
             <div key={contact._id} className={`contact-card ${contact.status}`}>
               <div className="contact-header">
                 <div className="contact-info">
-                  <h3>{contact.name}</h3>
-                  <p className="email">{contact.email}</p>
-                  {contact.phone && <p className="phone">📞 {contact.phone}</p>}
+                  <h3>{contact.name} (Parent/Guardian)</h3>
+                  <p className="child-name">👶 Child: <strong>{contact.childName}</strong></p>
+                  <p className="class-info">🎓 Class to Join: <strong>{contact.classToJoin}</strong></p>
+                  <p className="birth-date">📅 Date of Birth: <strong>{contact.dateOfBirth ? new Date(contact.dateOfBirth).toLocaleDateString('en-IN') : 'N/A'}</strong></p>
+                  {contact.email && <p className="email">📧 {contact.email}</p>}
+                  {contact.phone && (
+                    <p className="phone">
+                      📞 <a href={`tel:${contact.phone}`} className="phone-link">{contact.phone}</a>
+                    </p>
+                  )}
                 </div>
                 <div className="contact-meta">
                   <span className={`status-badge ${contact.status}`}>
@@ -159,7 +192,6 @@ const Admin = () => {
               </div>
               
               <div className="contact-content">
-                <h4>Subject: {contact.subject}</h4>
                 <p className="message">{contact.message}</p>
               </div>
               
@@ -173,12 +205,22 @@ const Admin = () => {
                   <option value="read">Read</option>
                   <option value="replied">Replied</option>
                 </select>
-                <a 
-                  href={`mailto:${contact.email}?subject=Re: ${contact.subject}`}
-                  className="reply-button"
+                {contact.email && (
+                  <a 
+                    href={`mailto:${contact.email}?subject=Re: Contact from ${contact.name}`}
+                    className="reply-button"
+                    title="Send Email Reply"
+                  >
+                    📧 Reply
+                  </a>
+                )}
+                <button 
+                  onClick={() => deleteContact(contact._id, contact.name)}
+                  className="delete-button"
+                  title="Delete this contact submission"
                 >
-                  📧 Reply
-                </a>
+                  🗑️ Delete
+                </button>
               </div>
             </div>
           ))

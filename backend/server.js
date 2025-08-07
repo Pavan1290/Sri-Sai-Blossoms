@@ -36,19 +36,29 @@ const contactSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  email: {
+  childName: {
     type: String,
     required: true,
+    trim: true
+  },
+  dateOfBirth: {
+    type: Date,
+    required: true
+  },
+  classToJoin: {
+    type: String,
+    required: true,
+    enum: ['Pre-KG', 'LKG', 'UKG', 'Grade 1', 'Grade 2', 'Grade 3', 'Grade 4', 'Grade 5'],
+    trim: true
+  },
+  email: {
+    type: String,
+    required: false,
     trim: true,
     lowercase: true
   },
   phone: {
     type: String,
-    trim: true
-  },
-  subject: {
-    type: String,
-    required: true,
     trim: true
   },
   message: {
@@ -93,31 +103,54 @@ app.get('/admin/', (req, res) => {
 // Submit contact form
 app.post('/api/contact', async (req, res) => {
   try {
-    const { name, email, phone, subject, message } = req.body;
+    const { name, childName, dateOfBirth, classToJoin, email, phone, message } = req.body;
 
     // Validation
-    if (!name || !email || !subject || !message) {
+    if (!name || !childName || !dateOfBirth || !classToJoin || !message) {
       return res.status(400).json({
         success: false,
-        message: 'Please fill in all required fields (name, email, subject, message)'
+        message: 'Please fill in all required fields (parent name, child name, date of birth, class to join, message)'
       });
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    // Validate class to join
+    const validClasses = ['Pre-KG', 'LKG', 'UKG', 'Grade 1', 'Grade 2', 'Grade 3', 'Grade 4', 'Grade 5'];
+    if (!validClasses.includes(classToJoin)) {
       return res.status(400).json({
         success: false,
-        message: 'Please provide a valid email address'
+        message: 'Please select a valid class to join'
       });
+    }
+
+    // Validate date of birth
+    const dob = new Date(dateOfBirth);
+    const today = new Date();
+    if (dob >= today) {
+      return res.status(400).json({
+        success: false,
+        message: 'Date of birth must be in the past'
+      });
+    }
+
+    // Email validation (only if email is provided)
+    if (email && email.trim()) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        return res.status(400).json({
+          success: false,
+          message: 'Please provide a valid email address'
+        });
+      }
     }
 
     // Create new contact submission
     const newContact = new Contact({
       name,
-      email,
+      childName,
+      dateOfBirth: dob,
+      classToJoin,
+      email: email || '',
       phone: phone || '',
-      subject,
       message
     });
 
@@ -125,9 +158,10 @@ app.post('/api/contact', async (req, res) => {
 
     console.log('📨 New contact form submission:', {
       id: savedContact._id,
-      name: savedContact.name,
+      parentName: savedContact.name,
+      childName: savedContact.childName,
+      classToJoin: savedContact.classToJoin,
       email: savedContact.email,
-      subject: savedContact.subject,
       timestamp: savedContact.submittedAt
     });
 
@@ -225,6 +259,55 @@ app.patch('/api/contacts/:id/status', async (req, res) => {
   }
 });
 
+// Delete contact submission (for admin use)
+app.delete('/api/contacts/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    console.log('🗑️ Attempting to delete contact with ID:', id);
+
+    // Validate ObjectId format
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      console.log('❌ Invalid ObjectId format:', id);
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid contact ID format'
+      });
+    }
+
+    const contact = await Contact.findByIdAndDelete(id);
+
+    if (!contact) {
+      console.log('❌ Contact not found with ID:', id);
+      return res.status(404).json({
+        success: false,
+        message: 'Contact submission not found'
+      });
+    }
+
+    console.log('✅ Contact submission deleted successfully:', {
+      id: contact._id,
+      parentName: contact.name,
+      childName: contact.childName,
+      email: contact.email,
+      deletedAt: new Date().toISOString()
+    });
+
+    res.json({
+      success: true,
+      message: 'Contact submission deleted successfully',
+      data: contact
+    });
+
+  } catch (error) {
+    console.error('❌ Error deleting contact:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error deleting contact submission'
+    });
+  }
+});
+
 // 404 handler
 app.use('*', (req, res) => {
   res.status(404).json({
@@ -244,9 +327,9 @@ app.use((error, req, res, next) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Sri Sai Blossoms Backend Server is running on port ${PORT}`);
-  console.log(`📍 API Base URL: http://localhost:${PORT}/api`);
-  console.log(`🏥 Health Check: http://localhost:${PORT}/api/health`);
+  console.log(` Sri Sai Blossoms Backend Server is running on port ${PORT}`);
+  console.log(` API Base URL: http://localhost:${PORT}/api`);
+  console.log(` Health Check: http://localhost:${PORT}/api/health`);
 });
 
 module.exports = app;

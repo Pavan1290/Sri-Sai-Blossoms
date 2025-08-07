@@ -4,9 +4,11 @@ import '../styles/Contact.css'
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
+    childName: '',
+    dateOfBirth: '',
+    classToJoin: '',
     email: '',
     phone: '',
-    subject: '',
     message: ''
   });
   
@@ -43,9 +45,11 @@ const Contact = () => {
         // Reset form
         setFormData({
           name: '',
+          childName: '',
+          dateOfBirth: '',
+          classToJoin: '',
           email: '',
           phone: '',
-          subject: '',
           message: ''
         });
         alert('Your message has been sent successfully! We will get back to you shortly.');
@@ -100,7 +104,7 @@ const Contact = () => {
           <h2>Send us a Message</h2>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name">Parent/Guardian Name</label>
               <input 
                 type="text" 
                 id="name" 
@@ -108,18 +112,66 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required 
+                placeholder="Enter parent/guardian name"
               />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="childName">Child's Name</label>
+              <input 
+                type="text" 
+                id="childName" 
+                name="childName" 
+                value={formData.childName}
+                onChange={handleChange}
+                required 
+                placeholder="Enter child's name"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="dateOfBirth">Child's Date of Birth</label>
+              <input 
+                type="date" 
+                id="dateOfBirth" 
+                name="dateOfBirth" 
+                value={formData.dateOfBirth}
+                onChange={handleChange}
+                required 
+                max={new Date().toISOString().split('T')[0]}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="classToJoin">Class to Join</label>
+              <select 
+                id="classToJoin" 
+                name="classToJoin" 
+                value={formData.classToJoin}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select a class</option>
+                <option value="Pre-KG">Pre-KG (Pre-Nursery)</option>
+                <option value="LKG">LKG (Lower Kindergarten)</option>
+                <option value="UKG">UKG (Upper Kindergarten)</option>
+                <option value="Grade 1">Grade 1</option>
+                <option value="Grade 2">Grade 2</option>
+                <option value="Grade 3">Grade 3</option>
+                <option value="Grade 4">Grade 4</option>
+                <option value="Grade 5">Grade 5</option>
+              </select>
             </div>
             
             <div className="form-group">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">Email (Optional)</label>
               <input 
                 type="email" 
                 id="email" 
                 name="email" 
                 value={formData.email}
                 onChange={handleChange}
-                required 
+                placeholder="Enter your email address (optional)"
               />
             </div>
             
@@ -131,18 +183,7 @@ const Contact = () => {
                 name="phone" 
                 value={formData.phone}
                 onChange={handleChange}
-              />
-            </div>
-            
-            <div className="form-group">
-              <label htmlFor="subject">Subject</label>
-              <input 
-                type="text" 
-                id="subject" 
-                name="subject" 
-                value={formData.subject}
-                onChange={handleChange}
-                required 
+                placeholder="Enter your phone number"
               />
             </div>
             
@@ -155,6 +196,7 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 required
+                placeholder="Please provide details about your inquiry or any specific questions you have"
               ></textarea>
             </div>
             
